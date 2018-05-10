@@ -18,7 +18,6 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.iid.FirebaseInstanceId
-import kotlinx.android.synthetic.main.activity_admin_sites.*
 import kotlinx.android.synthetic.main.activity_register.*
 import net.appitiza.moderno.BuildConfig
 import net.appitiza.moderno.R
@@ -27,6 +26,7 @@ import net.appitiza.moderno.ui.activities.users.UsersActivity
 import net.appitiza.moderno.utils.PreferenceHelper
 import net.appitiza.moderno.utils.Utils
 import java.util.*
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 
 
 class RegisterActivity : BaseActivity() {
@@ -54,6 +54,9 @@ class RegisterActivity : BaseActivity() {
             } else {
                 requestPermissions()
             }
+        }
+        tv_register_libraries.setOnClickListener {
+            startActivity(Intent(this, OssLicensesMenuActivity::class.java))
         }
     }
 
@@ -144,9 +147,7 @@ class RegisterActivity : BaseActivity() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             return PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_PHONE_STATE)
-        }
-        else
-        {
+        } else {
             return true
         }
 

@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'com.google.gms.oss.licenses.plugin'
+
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-apply plugin: 'io.fabric'
 
 android {
     signingConfigs {
@@ -86,5 +87,6 @@ dependencies {
     // FirebaseUI for Cloud Storage
     implementation 'com.firebaseui:firebase-ui-storage:3.2.2'
 
+    implementation 'com.google.android.gms:play-services-oss-licenses:11.8.0'
 }
 apply plugin: 'com.google.gms.google-services'

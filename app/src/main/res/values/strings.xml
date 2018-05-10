@@ -202,4 +202,5 @@
     <string name="pay_user">Pay User</string>
     <string name="pay_user_list">Pay User list</string>
     <string name="payment_added">Payment Info Added</string>
+    <string name="libraries_used">Libraries used</string>
 </resources>
