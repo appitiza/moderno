@@ -163,7 +163,7 @@ class DeviceChangeRequestActivity : BaseActivity() {
 
             } else {
                 // Permission denied.
-                Snackbar.make(fab_admin_add_site,
+                Snackbar.make(tv_users_change_device_request,
                         R.string.permission_rationale,
                         Snackbar.LENGTH_INDEFINITE)
                         .setAction(R.string.ok, View.OnClickListener {

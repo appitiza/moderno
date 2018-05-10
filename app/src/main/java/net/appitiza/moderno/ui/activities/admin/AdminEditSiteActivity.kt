@@ -239,7 +239,7 @@ class AdminEditSiteActivity : BaseActivity(), GoogleApiClient.ConnectionCallback
         if (shouldProvideRationale) {
             Log.i(TAG, "Displaying permission rationale to provide additional context.")
             Snackbar.make(
-                    fab_admin_add_site,
+                    tv_admin_edit_edit,
                     R.string.permission_rationale,
                     Snackbar.LENGTH_INDEFINITE)
                     .setAction(R.string.ok, View.OnClickListener {
@@ -330,7 +330,7 @@ class AdminEditSiteActivity : BaseActivity(), GoogleApiClient.ConnectionCallback
                 }
             } else {
                 // Permission denied.
-                Snackbar.make(fab_admin_add_site,
+                Snackbar.make(tv_admin_edit_edit,
                         R.string.permission_rationale,
                         Snackbar.LENGTH_INDEFINITE)
                         .setAction(R.string.ok, View.OnClickListener {

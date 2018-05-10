@@ -158,7 +158,7 @@ class RegisterActivity : BaseActivity() {
 
         if (shouldProvideRationale) {
             Snackbar.make(
-                    fab_admin_add_site,
+                    et_register_name,
                     R.string.permission_rationale,
                     Snackbar.LENGTH_INDEFINITE)
                     .setAction(R.string.ok, View.OnClickListener {
@@ -183,7 +183,7 @@ class RegisterActivity : BaseActivity() {
 
             } else {
                 // Permission denied.
-                Snackbar.make(fab_admin_add_site,
+                Snackbar.make(et_register_name,
                         R.string.permission_rationale,
                         Snackbar.LENGTH_INDEFINITE)
                         .setAction(R.string.ok, View.OnClickListener {

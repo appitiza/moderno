@@ -144,7 +144,7 @@
             </intent-filter>
         </service>
 
-
+        <activity android:name=".ui.activities.admin.UserListActivity"></activity>
     </application>
 
 </manifest>

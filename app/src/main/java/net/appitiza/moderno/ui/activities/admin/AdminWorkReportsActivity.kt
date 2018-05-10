@@ -168,10 +168,9 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick,AdminWorkHistoryClick
         mProgress?.show()
 
         val mCalender1 = Calendar.getInstance()
-        mCalender1.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), 1,0,0,1)
+        mCalender1.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), 1, 0, 0, 1)
         val mCalender2 = Calendar.getInstance()
-        mCalender2.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH) , 1,23,59,59)
-
+        mCalender2.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH) + 1, 3, 23, 59, 59)
 
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
                 .whereEqualTo(Constants.CHECKIN_USEREMAIL, user!!.emailId)
@@ -200,7 +199,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick,AdminWorkHistoryClick
                             mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
                             mCheckInData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
 
-                            //if (mCheckInData.checkintime!! >= mSelectedCalender.timeInMillis && mCheckInData.checkintime!! <= (mSelectedCalender.timeInMillis + (24L * 60L * 60L * 1000L))) {
+                            if (mCheckInData.checkintime!! >= mSelectedCalender.timeInMillis && mCheckInData.checkintime!! <= (mSelectedCalender.timeInMillis + (24L * 60L * 60L * 1000L))) {
                                 if (!mCheckInData.payment.equals("null") && mCheckInData.payment.toString() != "") {
                                     val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
                                     total_payment += mPayment
@@ -212,7 +211,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick,AdminWorkHistoryClick
                                     }
                                 }
                                 mHistoryDaily.add(mCheckInData)
-                           // }
+                            }
 
                         }
                         tv_admin_history_daily_payment.text = getString(R.string.rupees, total_payment)
@@ -220,9 +219,11 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick,AdminWorkHistoryClick
                         if (total_hours > 0) {
 
                             tv_admin_work_report_daily_total_hours.text = Utils.convertHours(total_hours)
+                            tv_admin_history_daily_estimated.text = ((total_hours / (60L * 60L * 1000L)) * userSalary).toString() +" ₹"
 
                         } else {
                             tv_admin_work_report_daily_total_hours.text = getString(R.string.not_checked_out)
+                            tv_admin_history_daily_estimated.text = getString(R.string.not_checked_out)
                         }
 
 
@@ -302,9 +303,11 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick,AdminWorkHistoryClick
                         if (total_hours > 0) {
 
                             tv_admin_history_monthly_total_hours.text = Utils.convertHours(total_hours)
+                            tv_admin_history_monthly_estimated.text = ((total_hours / (60L * 60L * 1000L)) * userSalary).toString() +" ₹"
 
                         } else {
                             tv_admin_history_monthly_total_hours.text = getString(R.string.not_checked_out)
+                            tv_admin_history_monthly_estimated.text = getString(R.string.not_checked_out)
                         }
 
 

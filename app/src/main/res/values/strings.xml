@@ -146,7 +146,7 @@
     <string name="fetching_data">Fetching data..</string>
     <string name="year">Year</string>
     <string name="month">month</string>
-    <string name="rupees">%1$d INR.</string>
+    <string name="rupees">%1$d  ₹.</string>
     <string name="hours_symbl">%1$d Hours.</string>
     <string name="hrs_symbl">%1$d Hrs.</string>
     <string name="hr_symbl">%1$d Hr.</string>
@@ -197,4 +197,6 @@
     <string name="device_donot_match">Register Device Donot Match,Please Contact admin</string>
     <string name="would_you_like_to_change">Woulld you like to change imei from %1$s to  %2$s of user  %3$s</string>
     <string name="checkin_details_edited">Checkin Information Edited</string>
+    <string name="userlist">User List</string>
+    <string name="payment_estimated_salary">Estimated Salary</string>
 </resources>
