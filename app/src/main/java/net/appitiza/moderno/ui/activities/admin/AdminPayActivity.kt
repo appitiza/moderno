@@ -1,20 +1,17 @@
 package net.appitiza.moderno.ui.activities.admin
 
-import android.app.DatePickerDialog
 import android.app.ProgressDialog
-import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.AdapterView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_set_time.*
-import kotlinx.android.synthetic.main.activity_user_report.*
+import kotlinx.android.synthetic.main.activity_admin_pay.*
 import net.appitiza.moderno.R
 import net.appitiza.moderno.adapter.AdminSpnrUserAdapter
 import net.appitiza.moderno.adapter.AdminSprSiteAdapter
-import net.appitiza.moderno.adapter.UserCheckSiteAdapter
 import net.appitiza.moderno.constants.Constants
 import net.appitiza.moderno.model.CurrentCheckIndata
 import net.appitiza.moderno.model.SiteListdata
@@ -26,9 +23,7 @@ import net.appitiza.moderno.utils.PreferenceHelper
 import net.appitiza.moderno.utils.Utils
 import java.util.*
 
-class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
-
-
+class AdminPayActivity : BaseActivity(), UserClick, UserSiteClick {
     private var isLoggedIn by PreferenceHelper(Constants.PREF_KEY_IS_USER_LOGGED_IN, false)
     private var displayName by PreferenceHelper(Constants.PREF_KEY_IS_USER_DISPLAY_NAME, "")
     private var useremail by PreferenceHelper(Constants.PREF_KEY_IS_USER_EMAIL, "")
@@ -46,15 +41,10 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
     private lateinit var coadapter: AdminSprSiteAdapter
     private val mCheckInData: CurrentCheckIndata = CurrentCheckIndata()
     private var checkinSite: SiteListdata = SiteListdata()
-    private var checkoutSite: SiteListdata = SiteListdata()
 
-    private var mCheckinCalendar: Calendar = Calendar.getInstance()
-    private var mCheckoutCalendar: Calendar = Calendar.getInstance()
-    private var isT1Set: Boolean = false
-    private var isT2Set: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_set_time)
+        setContentView(R.layout.activity_admin_pay)
         initializeFireBase()
         getUser()
         getSites()
@@ -70,7 +60,7 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
     }
 
     private fun setClick() {
-        tv_admin_submit_time.setOnClickListener {
+        tv_admin_submit_pay_user.setOnClickListener {
             if (TextUtils.isEmpty(mCheckInData.siteid)) {
                 if (validate()) {
                     insertHistory()
@@ -81,9 +71,7 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
             }
 
         }
-        et_admin_site_checkin_time.setOnClickListener { loadCalendar(0) }
-        et_admin_site_checkout_time.setOnClickListener { loadCalendar(1) }
-        spnr_admin_time_user.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spnr_admin_pay_user_user.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
@@ -94,18 +82,8 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
             }
 
         }
-        spnr_admin_check_out_site.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
 
-            }
-
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-                checkoutSite = mSiteList[position]
-            }
-
-        }
-        spnr_admin_check_in_site.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spnr_admin_pay_user_site.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
@@ -141,7 +119,7 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
                         }
 
                         userAdapter = AdminSpnrUserAdapter(this, mUserList, this)
-                        spnr_admin_time_user.adapter = userAdapter
+                        spnr_admin_pay_user_user.adapter = userAdapter
                         mProgress?.dismiss()
 
                     } else {
@@ -183,8 +161,7 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
                         }
                         ciadapter = AdminSprSiteAdapter(this, mSiteList, this)
                         coadapter = AdminSprSiteAdapter(this, mSiteList, this)
-                        spnr_admin_check_in_site.adapter = ciadapter
-                        spnr_admin_check_out_site.adapter = coadapter
+                        spnr_admin_pay_user_site.adapter = ciadapter
                         mProgress?.dismiss()
 
                     } else {
@@ -211,18 +188,19 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
         val map = HashMap<String, Any>()
         map[Constants.CHECKIN_SITE] = checkinSite.siteid.toString()
         map[Constants.CHECKIN_SITENAME] = checkinSite.sitename.toString()
-        map[Constants.CHECKIN_CHECKIN] = mCheckinCalendar.time
+        map[Constants.CHECKIN_CHECKIN] = FieldValue.serverTimestamp()
         map[Constants.CHECKIN_USEREMAIL] = user?.emailId.toString()
-        map[Constants.CHECKIN_CHECKOUT] = mCheckoutCalendar.time
-        map[Constants.CHECKIN_PAYMENT] = et_admin_site_payment.text.toString()
+        map[Constants.CHECKIN_CHECKOUT] =  FieldValue.serverTimestamp()
+        map[Constants.CHECKIN_PAYMENT] = et_admin_pay_user_payment.text.toString()
         map[Constants.CHECKIN_USERNAME] = user?.username.toString()
-        map[Constants.CHECKIN_PAYMENT_TYPE] = "work"
+        map[Constants.CHECKIN_PAYMENT_TYPE] = Constants.ADMIN_PAYMENT
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
                 .add(map)
                 .addOnSuccessListener { documentReference ->
 
+                    et_admin_pay_user_payment.setText("")
                     mProgress!!.dismiss()
-                    Utils.showDialog(this, getString(R.string.checkin_details_added))
+                    Utils.showDialog(this, getString(R.string.payment_added))
 
                 }
                 .addOnFailureListener { e ->
@@ -231,68 +209,14 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
                 }
     }
 
-    private fun loadCalendar(from: Int) {
-        val c = Calendar.getInstance()
-        val mYear = c.get(Calendar.YEAR)
-        val mMonth = c.get(Calendar.MONTH)
-        val mDay = c.get(Calendar.DAY_OF_MONTH)
-        val datePickerDialog = android.app.DatePickerDialog(this,
-                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-
-                    loadTimer(from, year, monthOfYear, dayOfMonth)
-
-                }, mYear, mMonth, mDay)
-
-        datePickerDialog.datePicker.maxDate = System.currentTimeMillis() - 1000
 
 
-        datePickerDialog.setTitle(null)
-        datePickerDialog.setCancelable(false)
-        datePickerDialog.show()
-    }
-
-
-    private fun loadTimer(from: Int, year: Int, monthOfYear: Int, dayOfMonth: Int) {
-        val c = Calendar.getInstance()
-        val mHour = c.get(Calendar.HOUR_OF_DAY)
-        val mMinute = c.get(Calendar.MINUTE)
-
-
-        val timePickerDialog = TimePickerDialog(this,
-                TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                    if (from == 0) {
-                        mCheckinCalendar.set(year, monthOfYear, dayOfMonth, hourOfDay, minute, 1)
-                        et_admin_site_checkin_time.setText(Utils.convertDate(mCheckinCalendar.timeInMillis, "dd MMM yyyy HH:mm"))
-                        isT1Set = true
-                    } else {
-                        mCheckoutCalendar.set(year, monthOfYear, dayOfMonth, hourOfDay, minute, 1)
-                        et_admin_site_checkout_time.setText(Utils.convertDate(mCheckoutCalendar.timeInMillis, "dd MMM yyyy HH:mm"))
-                        isT2Set = true
-                    }
-
-                }, mHour, mMinute, false)
-        timePickerDialog.setCancelable(false)
-        timePickerDialog.show()
-    }
 
     private fun validate(): Boolean {
-        if (TextUtils.isEmpty(et_admin_site_checkin_time.text.toString())) {
-            Utils.showDialog(this, getString(R.string.please_provide_checkin_time))
-            return false
-        } else if (TextUtils.isEmpty(et_admin_site_checkout_time.text.toString())) {
-            Utils.showDialog(this, getString(R.string.please_provide_checkout_time))
-            return false
-        } else if (TextUtils.isEmpty(et_admin_site_payment.text.toString())) {
+         if (TextUtils.isEmpty(et_admin_pay_user_payment.text.toString())) {
             Utils.showDialog(this, getString(R.string.please_provide_payment_amount))
             return false
-        } else if (mCheckinCalendar.timeInMillis >= mCheckoutCalendar.timeInMillis) {
-            Utils.showDialog(this, getString(R.string.checkout_time_should_be_greater_than_checkin))
-            return false
-        } else if (checkinSite.siteid != checkoutSite.siteid) {
-            Utils.showDialog(this, getString(R.string.check_in_not_equal_check_out))
-            return false
-        }
-        else {
+        } else {
             return true
         }
 

@@ -49,6 +49,8 @@ class AdminActivity : AppCompatActivity() {
         ll_admin_home_site_salary.setOnClickListener { loadSetsalary() }
         ll_admin_home_change_device_resquests.setOnClickListener { loadDeviceChangeRequests() }
         ll_admin_home_userlist.setOnClickListener { loadUser() }
+        ll_admin_home_pay.setOnClickListener { loadAdminPay() }
+        ll_admin_home_paylist.setOnClickListener { loadAdminPay() }
 
     }
 
@@ -118,6 +120,13 @@ class AdminActivity : AppCompatActivity() {
     fun loadUser() {
 
         val intent = Intent(this@AdminActivity, UserListActivity::class.java)
+        val p1 = Pair(tv_admin_home_userlist as View, getString(R.string.txt_adminhome_device_change_request))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
+        startActivity(intent, options.toBundle())
+    }
+    fun loadAdminPay() {
+
+        val intent = Intent(this@AdminActivity, AdminPayActivity::class.java)
         val p1 = Pair(tv_admin_home_userlist as View, getString(R.string.txt_adminhome_device_change_request))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())

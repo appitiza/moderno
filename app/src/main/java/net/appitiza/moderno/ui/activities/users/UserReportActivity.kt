@@ -351,6 +351,8 @@ class UserReportActivity : BaseActivity(), UserSiteClick, GoogleApiClient.Connec
         map[Constants.CHECKIN_CHECKIN] = FieldValue.serverTimestamp()
         map[Constants.CHECKIN_USEREMAIL] = useremail
         map[Constants.CHECKIN_USERNAME] = displayName
+        map[Constants.CHECKIN_PAYMENT_TYPE] = Constants.CLIENT_PAYMENT
+
 
 
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)

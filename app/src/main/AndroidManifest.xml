@@ -144,7 +144,8 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ui.activities.admin.UserListActivity"></activity>
+        <activity android:name=".ui.activities.admin.UserListActivity" />
+        <activity android:name=".ui.activities.admin.AdminPayActivity"></activity>
     </application>
 
 </manifest>

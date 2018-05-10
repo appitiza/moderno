@@ -85,8 +85,6 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-auth:3.2.2'
     // FirebaseUI for Cloud Storage
     implementation 'com.firebaseui:firebase-ui-storage:3.2.2'
-    implementation('com.crashlytics.sdk.android:crashlytics:2.9.0@aar') {
-        transitive = true
-    }
+
 }
 apply plugin: 'com.google.gms.google-services'

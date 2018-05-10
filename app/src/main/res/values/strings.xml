@@ -199,4 +199,7 @@
     <string name="checkin_details_edited">Checkin Information Edited</string>
     <string name="userlist">User List</string>
     <string name="payment_estimated_salary">Estimated Salary</string>
+    <string name="pay_user">Pay User</string>
+    <string name="pay_user_list">Pay User list</string>
+    <string name="payment_added">Payment Info Added</string>
 </resources>

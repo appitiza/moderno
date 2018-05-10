@@ -44,6 +44,7 @@ class Constants {
         const val CHECKIN_CHECKIN = "checkin"
         const val CHECKIN_CHECKOUT = "checkout"
         const val CHECKIN_PAYMENT = "payment"
+        const val CHECKIN_PAYMENT_TYPE = "payment_type"
         const val COLLECTION_NOTIFICATION = "notification"
         const val NOTIFICATION_ID = "id"
         const val NOTIFICATION_TITLE = "title"
@@ -59,6 +60,10 @@ class Constants {
         const val DEVICE_CHANGE_REQUEST_NAME = "name"
         const val DEVICE_CHANGE_REQUEST_STATUS = "status"
         const val DEVICE_CHANGE_REQUEST_TIME = "time"
+
+        const val ADMIN_PAYMENT = "admin_pay"
+        const val CLIENT_PAYMENT = "client_pay"
+
 
 
     }

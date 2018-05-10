@@ -123,7 +123,7 @@ class UserHistoryActivity : BaseActivity() {
 
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
                 .whereEqualTo(Constants.CHECKIN_USEREMAIL, useremail)
-                /*.whereGreaterThanOrEqualTo(Constants.CHECKIN_CHECKIN, mCalender1.time)*/
+                .whereEqualTo(Constants.CHECKIN_PAYMENT_TYPE, Constants.CLIENT_PAYMENT)
                 .whereLessThanOrEqualTo(Constants.CHECKIN_CHECKIN, mCalender2.time)
                 .get()
                 .addOnCompleteListener { fetchall_task ->
@@ -213,6 +213,7 @@ class UserHistoryActivity : BaseActivity() {
         mHistoryDisplay.clear()
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
                 .whereEqualTo(Constants.CHECKIN_USEREMAIL, useremail)
+                .whereEqualTo(Constants.CHECKIN_PAYMENT_TYPE, Constants.CLIENT_PAYMENT)
                 .whereGreaterThanOrEqualTo(Constants.CHECKIN_CHECKIN, mCalender1.time)
                 .whereLessThanOrEqualTo(Constants.CHECKIN_CHECKIN, mCalender2.time)
                 .get()

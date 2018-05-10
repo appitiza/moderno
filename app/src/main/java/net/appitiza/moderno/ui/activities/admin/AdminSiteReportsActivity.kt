@@ -129,6 +129,7 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
         mHistory.clear()
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
                 .whereEqualTo(Constants.CHECKIN_SITE,selectedSite.siteid.toString())
+                .whereEqualTo(Constants.CHECKIN_PAYMENT_TYPE, Constants.CLIENT_PAYMENT)
                 .get()
                 .addOnCompleteListener { fetchall_task ->
                     mProgress?.dismiss()
