@@ -42,6 +42,8 @@
                     android:id="@+id/ll_admin_home_sites"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/semi_margin"
+                    android:layout_marginRight="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -65,7 +67,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_sites"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -81,6 +84,8 @@
                     android:id="@+id/ll_admin_home_wrk_reports"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/semi_margin"
+                    android:layout_marginStart="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -92,7 +97,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/website_home" />
+                        android:src="@drawable/list" />
 
                     <View
                         android:layout_width="1dp"
@@ -104,8 +109,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_wrk_reports"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="start|left"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -129,6 +134,8 @@
                     android:id="@+id/ll_admin_home_site_reports"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/semi_margin"
+                    android:layout_marginRight="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -140,7 +147,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/website_home" />
+                        android:src="@drawable/chart" />
 
                     <View
                         android:layout_width="1dp"
@@ -152,7 +159,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_site_reports"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -168,6 +176,8 @@
                     android:id="@+id/ll_admin_home_site_notification"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/semi_margin"
+                    android:layout_marginStart="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -179,7 +189,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/website_home" />
+                        android:src="@drawable/notification" />
 
                     <View
                         android:layout_width="1dp"
@@ -191,7 +201,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_site_notification"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -217,6 +228,8 @@
                     android:id="@+id/ll_admin_home_site_salary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/semi_margin"
+                    android:layout_marginRight="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -228,7 +241,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/website_home" />
+                        android:src="@drawable/dollar" />
 
                     <View
                         android:layout_width="1dp"
@@ -240,7 +253,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_site_salary"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -256,6 +270,8 @@
                     android:id="@+id/ll_admin_home_site_adjust_time"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/semi_margin"
+                    android:layout_marginStart="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -267,7 +283,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/website_home" />
+                        android:src="@drawable/icon" />
 
                     <View
                         android:layout_width="1dp"
@@ -279,7 +295,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_site_adjust_time"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -304,6 +321,8 @@
                     android:id="@+id/ll_admin_home_site_device"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/semi_margin"
+                    android:layout_marginRight="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -315,7 +334,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/website_home" />
+                        android:src="@drawable/settings" />
 
                     <View
                         android:layout_width="1dp"
@@ -327,7 +346,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_site_device"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -343,6 +363,8 @@
                     android:id="@+id/ll_admin_home_change_device_resquests"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/semi_margin"
+                    android:layout_marginStart="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -354,7 +376,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/website_home" />
+                        android:src="@drawable/responsive" />
 
                     <View
                         android:layout_width="1dp"
@@ -366,7 +388,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_change_device_resquests"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -390,6 +413,8 @@
                     android:id="@+id/ll_admin_home_userlist"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/semi_margin"
+                    android:layout_marginRight="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -401,7 +426,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/website_home" />
+                        android:src="@drawable/multiple_users_silhouette" />
 
                     <View
                         android:layout_width="1dp"
@@ -413,7 +438,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_userlist"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -429,6 +455,8 @@
                     android:id="@+id/ll_admin_home_pay"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/semi_margin"
+                    android:layout_marginStart="@dimen/semi_margin"
                     android:layout_weight="1"
                     android:background="@drawable/admin_home_btn_bg"
                     android:orientation="horizontal"
@@ -440,7 +468,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/website_home" />
+                        android:src="@drawable/pay" />
 
                     <View
                         android:layout_width="1dp"
@@ -452,7 +480,8 @@
                     <TextView
                         android:id="@+id/tv_admin_home_pay"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/semi_margin"
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
@@ -469,7 +498,9 @@
                 android:id="@+id/ll_admin_home_paylist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/semi_margin"
                 android:layout_marginLeft="@dimen/quad_margin"
+                android:layout_marginRight="@dimen/semi_margin"
                 android:layout_marginStart="@dimen/quad_margin"
                 android:layout_marginTop="@dimen/default_margin"
                 android:background="@drawable/admin_home_btn_bg"
@@ -482,7 +513,7 @@
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@string/app_name"
                     android:padding="@dimen/quad_padding"
-                    android:src="@drawable/website_home" />
+                    android:src="@drawable/online_payment" />
 
                 <View
                     android:layout_width="1dp"
@@ -494,7 +525,8 @@
                 <TextView
                     android:id="@+id/tv_admin_home_paylist"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/semi_margin"
                     android:layout_marginStart="@dimen/semi_margin"
                     android:fontFamily="@font/roboto"
