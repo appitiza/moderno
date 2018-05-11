@@ -8,7 +8,6 @@ import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.bumptech.glide.load.model.ModelLoader
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.iid.FirebaseInstanceId
@@ -50,7 +49,7 @@ class AdminActivity : AppCompatActivity() {
         ll_admin_home_change_device_resquests.setOnClickListener { loadDeviceChangeRequests() }
         ll_admin_home_userlist.setOnClickListener { loadUser() }
         ll_admin_home_pay.setOnClickListener { loadAdminPay() }
-        ll_admin_home_paylist.setOnClickListener { loadAdminPay() }
+        ll_admin_home_paylist.setOnClickListener { loadAdminPayList() }
 
     }
 
@@ -117,20 +116,31 @@ class AdminActivity : AppCompatActivity() {
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }
+
     fun loadUser() {
 
         val intent = Intent(this@AdminActivity, UserListActivity::class.java)
-        val p1 = Pair(tv_admin_home_userlist as View, getString(R.string.txt_adminhome_device_change_request))
+        val p1 = Pair(tv_admin_home_userlist as View, getString(R.string.txt_adminhome_userlist))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }
+
     fun loadAdminPay() {
 
         val intent = Intent(this@AdminActivity, AdminPayActivity::class.java)
-        val p1 = Pair(tv_admin_home_userlist as View, getString(R.string.txt_adminhome_device_change_request))
+        val p1 = Pair(tv_admin_home_pay as View, getString(R.string.txt_adminhome_pay))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }
+
+    fun loadAdminPayList() {
+
+        val intent = Intent(this@AdminActivity, AdminPayListActivity::class.java)
+        val p1 = Pair(tv_admin_home_paylist as View, getString(R.string.txt_adminhome_paylist))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
+        startActivity(intent, options.toBundle())
+    }
+
     private fun updateFcm() {
         val deviceToken: String? = FirebaseInstanceId.getInstance().token
         val map = HashMap<String, Any>()
@@ -166,6 +176,6 @@ class AdminActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-             showExitWarning()
+        showExitWarning()
     }
 }

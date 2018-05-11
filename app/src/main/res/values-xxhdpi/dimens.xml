@@ -12,6 +12,6 @@
     <dimen name="semi_padding">5dp</dimen>
     <dimen name="quad_padding">2.5dp</dimen>
     <dimen name="text_size_large">18dp</dimen>
-    <dimen name="text_size_medium">14dp</dimen>
-    <dimen name="text_size_small">12dp</dimen>
+    <dimen name="text_size_medium">12dp</dimen>
+    <dimen name="text_size_small">10dp</dimen>
 </resources>

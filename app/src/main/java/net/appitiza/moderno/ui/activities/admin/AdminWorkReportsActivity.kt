@@ -173,7 +173,6 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
 
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
                 .whereEqualTo(Constants.CHECKIN_USEREMAIL, user!!.emailId)
-                .whereEqualTo(Constants.CHECKIN_PAYMENT_TYPE, Constants.CLIENT_PAYMENT)
                 .whereGreaterThanOrEqualTo(Constants.CHECKIN_CHECKIN, mCalender1.time)
                 .whereLessThanOrEqualTo(Constants.CHECKIN_CHECKIN, mCalender2.time)
                 .get()
@@ -257,7 +256,6 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
 
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
                 .whereEqualTo(Constants.CHECKIN_USEREMAIL, user!!.emailId)
-                .whereEqualTo(Constants.CHECKIN_PAYMENT_TYPE, Constants.CLIENT_PAYMENT)
                 .whereGreaterThanOrEqualTo(Constants.CHECKIN_CHECKIN, mCalender1.time)
                 .whereLessThanOrEqualTo(Constants.CHECKIN_CHECKIN, mCalender2.time)
                 .get()

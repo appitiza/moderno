@@ -31,9 +31,9 @@ class UserListAdapter(private val mList: ArrayList<UserListdata>) : RecyclerView
     class UserListHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(data: UserListdata) {
-            itemView.tv_name.text = data.username
-            itemView.tv_email.text = data.emailId
-            itemView.tv_salary.text = data.salary.toString()+"₹"
+            itemView.tv_name.text = "Name : " + data.username
+            itemView.tv_email.text = "Email : " + data.emailId
+            itemView.tv_salary.text = "Salary : " + data.salary.toString() + " ₹"
 
 
         }

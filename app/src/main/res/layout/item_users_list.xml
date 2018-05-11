@@ -40,5 +40,5 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginTop="@dimen/default_padding"
-        android:background="@color/users_home_btn_strock" />
+        android:background="@color/admin_home_btn_strock" />
 </LinearLayout>

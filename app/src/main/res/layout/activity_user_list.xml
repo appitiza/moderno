@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:transitionName="@string/transition_usershome_notification">
+    android:transitionName="@string/transition_adminhome_userlist">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:text="@string/userlist"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:transitionName="@string/txt_usershome_notification"
+            android:transitionName="@string/txt_adminhome_userlist"
             android:textSize="@dimen/text_size_large" />
 
         <View

@@ -104,6 +104,21 @@
             android:theme="@style/MainMaterialTheme.Base.admin"
             android:windowSoftInputMode="stateHidden" />
         <activity
+            android:name=".ui.activities.admin.UserListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.admin"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.admin.AdminPayActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.admin"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.admin.AdminPayListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.admin"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".ui.activities.users.UsersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MainMaterialTheme.Base.user"
@@ -144,8 +159,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ui.activities.admin.UserListActivity" />
-        <activity android:name=".ui.activities.admin.AdminPayActivity"></activity>
+
     </application>
 
 </manifest>

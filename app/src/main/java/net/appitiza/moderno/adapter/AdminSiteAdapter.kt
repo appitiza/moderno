@@ -32,7 +32,6 @@ class AdminSiteAdapter(private val userList: ArrayList<SiteListdata>, private va
 
     //the class is hodling the list view
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         fun bindItems(data: SiteListdata) {
             itemView.tv_site_item_name.text = data.sitename
 

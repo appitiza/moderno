@@ -63,6 +63,15 @@
     <string name="transition_adminhome_device_change_request">txt_adminhome_device_change_request</string>
     <string name="txt_adminhome_device_change_request">txt_adminhome_device_change_request</string>
 
+    <string name="transition_adminhome_userlist">txt_adminhome_userlist</string>
+    <string name="txt_adminhome_userlist">txt_adminhome_userlist</string>
+
+    <string name="transition_adminhome_pay">txt_adminhome_pay</string>
+    <string name="txt_adminhome_pay">txt_adminhome_pay</string>
+
+    <string name="transition_adminhome_paylist">txt_adminhome_paylist</string>
+    <string name="txt_adminhome_paylist">txt_adminhome_paylist</string>
+
     <string name="transition_usershome_notification">usershome_notification</string>
     <string name="txt_usershome_notification">txt_usershome_notification</string>
 
@@ -203,4 +212,6 @@
     <string name="pay_user_list">Pay User list</string>
     <string name="payment_added">Payment Info Added</string>
     <string name="libraries_used">Libraries used</string>
+    <string name="total_payment">Total Payment</string>
+    <string name="view_on_map">View On Map</string>
 </resources>

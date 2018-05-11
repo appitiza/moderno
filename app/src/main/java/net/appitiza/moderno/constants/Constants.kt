@@ -15,6 +15,7 @@ class Constants {
         const val COLLECTION_SITE = "sites"
         const val COLLECTION_CHECKIN_DATA = "checkin"
         const val COLLECTION_CHECKIN_HISTORY = "checkin_history"
+        const val COLLECTION_ADMIN_PAY = "admin_pay"
         const val DOCUMENT_USER = "users"
         const val CHECKIN_USER = "users_email"
         const val CHECKIN_NAME = "users_name"
@@ -63,6 +64,12 @@ class Constants {
 
         const val ADMIN_PAYMENT = "admin_pay"
         const val CLIENT_PAYMENT = "client_pay"
+
+        const val ADMIN_PAY_PAYMENT = "payment"
+        const val ADMIN_PAY_USER = "user"
+        const val ADMIN_PAY_USER_DISPLAY_NAME = "user_name"
+        const val ADMIN_PAY_DATE = "date"
+        const val ADMIN_PAY_REASON = "reason"
 
 
 

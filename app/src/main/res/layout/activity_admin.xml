@@ -26,410 +26,445 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/semi_padding">
+            android:padding="@dimen/default_padding">
 
             <LinearLayout
-                android:id="@+id/ll_admin_home_sites"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/admin_home_btn_bg"
-                android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name"  />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
-
-                <TextView
-                    android:id="@+id/tv_admin_home_sites"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/sites"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/transition_adminhome_sites" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_admin_home_wrk_reports"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
-                android:layout_marginLeft="@dimen/quad_margin"
-                android:layout_marginStart="@dimen/quad_margin"
-                android:background="@drawable/admin_home_btn_bg"
                 android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
+                android:weightSum="2">
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_sites"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name"  />
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
 
-                <TextView
-                    android:id="@+id/tv_admin_home_wrk_reports"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start|left"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/work_reports"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/transition_adminhome_wrkreport" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_sites"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/sites"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/transition_adminhome_sites" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_wrk_reports"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_wrk_reports"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start|left"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/work_reports"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/transition_adminhome_wrkreport" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_admin_home_site_reports"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
-                android:background="@drawable/admin_home_btn_bg"
                 android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
+                android:weightSum="2">
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_site_reports"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name"  />
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
 
-                <TextView
-                    android:id="@+id/tv_admin_home_site_reports"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/site_reports"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/transition_adminhome_sitesreprt" />
-            </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
 
-            <LinearLayout
-                android:id="@+id/ll_admin_home_site_notification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quad_margin"
-                android:layout_marginStart="@dimen/quad_margin"
-                android:layout_marginTop="@dimen/default_margin"
-                android:background="@drawable/admin_home_btn_bg"
-                android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
+                    <TextView
+                        android:id="@+id/tv_admin_home_site_reports"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/site_reports"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/transition_adminhome_sitesreprt" />
+                </LinearLayout>
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_site_notification"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name"  />
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
 
-                <TextView
-                    android:id="@+id/tv_admin_home_site_notification"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/notification"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/txt_adminhome_notification" />
-            </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
 
-
-            <LinearLayout
-                android:id="@+id/ll_admin_home_site_salary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_margin"
-                android:background="@drawable/admin_home_btn_bg"
-                android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
-
-                <TextView
-                    android:id="@+id/tv_admin_home_site_salary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/set_salary"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/txt_adminhome_salary" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_admin_home_site_adjust_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quad_margin"
-                android:layout_marginStart="@dimen/quad_margin"
-                android:layout_marginTop="@dimen/default_margin"
-                android:background="@drawable/admin_home_btn_bg"
-                android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name"  />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
-
-                <TextView
-                    android:id="@+id/tv_admin_home_site_adjust_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/adjust_time"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/txt_adminhome_adjust_time" />
+                    <TextView
+                        android:id="@+id/tv_admin_home_site_notification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/notification"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_notification" />
+                </LinearLayout>
             </LinearLayout>
 
 
             <LinearLayout
-                android:id="@+id/ll_admin_home_site_device"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
-                android:background="@drawable/admin_home_btn_bg"
                 android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
+                android:weightSum="2">
 
-                <ImageView
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_site_salary"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name" />
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
 
-                <TextView
-                    android:id="@+id/tv_admin_home_site_device"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/device_reset"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/txt_adminhome_device" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_site_salary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/set_salary"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_salary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_site_adjust_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_site_adjust_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/adjust_time"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_adjust_time" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_admin_home_change_device_resquests"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quad_margin"
-                android:layout_marginStart="@dimen/quad_margin"
                 android:layout_marginTop="@dimen/default_margin"
-                android:background="@drawable/admin_home_btn_bg"
                 android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
+                android:weightSum="2">
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_site_device"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name"  />
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
 
-                <TextView
-                    android:id="@+id/tv_admin_home_change_device_resquests"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/admin_change_device"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/txt_adminhome_device_change_request" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_site_device"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/device_reset"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_device" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_change_device_resquests"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_change_device_resquests"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/admin_change_device"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_device_change_request" />
+                </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
-                android:id="@+id/ll_admin_home_userlist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quad_margin"
-                android:layout_marginStart="@dimen/quad_margin"
                 android:layout_marginTop="@dimen/default_margin"
-                android:background="@drawable/admin_home_btn_bg"
                 android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
+                android:weightSum="2">
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_userlist"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name"  />
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
 
-                <TextView
-                    android:id="@+id/tv_admin_home_userlist"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/userlist"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/txt_adminhome_device_change_request" />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_admin_home_pay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quad_margin"
-                android:layout_marginStart="@dimen/quad_margin"
-                android:layout_marginTop="@dimen/default_margin"
-                android:background="@drawable/admin_home_btn_bg"
-                android:orientation="horizontal"
-                android:padding="@dimen/semi_padding">
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/tv_admin_home_userlist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/userlist"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_device_change_request" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_pay"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name"  />
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/quad_margin"
-                    android:layout_marginStart="@dimen/quad_margin"
-                    android:background="@color/white" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/website_home" />
 
-                <TextView
-                    android:id="@+id/tv_admin_home_pay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical|left|start"
-                    android:text="@string/pay_user"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/txt_adminhome_device_change_request" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_pay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/pay_user"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_device_change_request" />
+                </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/ll_admin_home_paylist"
                 android:layout_width="match_parent"
@@ -439,16 +474,15 @@
                 android:layout_marginTop="@dimen/default_margin"
                 android:background="@drawable/admin_home_btn_bg"
                 android:orientation="horizontal"
-                android:visibility="gone"
-                android:padding="@dimen/semi_padding">
-+
+                android:padding="@dimen/quad_padding">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:padding="@dimen/semi_padding"
-                    android:src="@drawable/dummy"
-                    android:contentDescription="@string/app_name"  />
+                    android:contentDescription="@string/app_name"
+                    android:padding="@dimen/quad_padding"
+                    android:src="@drawable/website_home" />
 
                 <View
                     android:layout_width="1dp"
@@ -461,8 +495,8 @@
                     android:id="@+id/tv_admin_home_paylist"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginLeft="@dimen/semi_margin"
+                    android:layout_marginStart="@dimen/semi_margin"
                     android:fontFamily="@font/roboto"
                     android:gravity="center_vertical|left|start"
                     android:text="@string/pay_user_list"
@@ -471,9 +505,6 @@
                     android:textSize="@dimen/text_size_medium"
                     android:transitionName="@string/txt_adminhome_device_change_request" />
             </LinearLayout>
-
-
-
 
         </LinearLayout>
     </ScrollView>
