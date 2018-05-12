@@ -64,7 +64,7 @@
                 android:background="@drawable/et_bg">
 
                 <Spinner
-                    android:id="@+id/iv_admin_site_report_down"
+                    android:id="@+id/spnr_admin_work_report_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
