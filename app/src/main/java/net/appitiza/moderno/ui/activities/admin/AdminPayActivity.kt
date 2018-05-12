@@ -10,6 +10,7 @@ import android.widget.AdapterView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_admin_pay.*
+import kotlinx.android.synthetic.main.activity_set_time.*
 import net.appitiza.moderno.R
 import net.appitiza.moderno.adapter.AdminSpnrUserAdapter
 import net.appitiza.moderno.constants.Constants
@@ -122,17 +123,21 @@ class AdminPayActivity : BaseActivity(), UserClick, UserSiteClick {
         mProgress?.setCancelable(false)
         mProgress?.show()
         val map = HashMap<String, Any>()
-        map[Constants.ADMIN_PAY_DATE] = mCalendar.time
-        map[Constants.ADMIN_PAY_PAYMENT] = et_admin_pay_user_payment.text.toString()
-        map[Constants.ADMIN_PAY_USER] = user?.emailId.toString()
-        map[Constants.ADMIN_PAY_USER_DISPLAY_NAME] = user?.username.toString()
-        map[Constants.ADMIN_PAY_REASON] = et_admin_pay_reason.text.toString()
-        db.collection(Constants.COLLECTION_ADMIN_PAY)
+        map[Constants.CHECKIN_SITE] = "0"
+        map[Constants.CHECKIN_SITENAME] = "admin pay"
+        map[Constants.CHECKIN_CHECKIN] = mCalendar.time
+        map[Constants.CHECKIN_USEREMAIL] = user?.emailId.toString()
+        map[Constants.CHECKIN_CHECKOUT] = mCalendar.time
+        map[Constants.CHECKIN_PAYMENT] = et_admin_pay_user_payment.text.toString()
+        map[Constants.CHECKIN_USERNAME] = user?.username.toString()
+        map[Constants.CHECKIN_PAYMENT_TYPE] = "admin"
+
+
+        db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
                 .add(map)
                 .addOnSuccessListener { documentReference ->
 
                     et_admin_pay_user_payment.setText("")
-                    et_admin_pay_reason.setText("")
                     et_admin_pay_date.setText("")
                     mProgress!!.dismiss()
                     Utils.showDialog(this, getString(R.string.payment_added))

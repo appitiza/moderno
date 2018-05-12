@@ -16,14 +16,14 @@ import kotlinx.android.synthetic.main.activity_admin_work_reports.*
 import kotlinx.android.synthetic.main.admin_daily_layout.*
 import kotlinx.android.synthetic.main.admin_monthly_layout.*
 import net.appitiza.moderno.R
-import net.appitiza.moderno.constants.Constants
-import net.appitiza.moderno.ui.activities.BaseActivity
 import net.appitiza.moderno.adapter.AdminHistoryAdapter
 import net.appitiza.moderno.adapter.AdminSpnrUserAdapter
-import net.appitiza.moderno.ui.activities.interfaces.AdminWorkHistoryClick
-import net.appitiza.moderno.ui.activities.interfaces.UserClick
+import net.appitiza.moderno.constants.Constants
 import net.appitiza.moderno.model.CurrentCheckIndata
 import net.appitiza.moderno.model.UserListdata
+import net.appitiza.moderno.ui.activities.BaseActivity
+import net.appitiza.moderno.ui.activities.interfaces.AdminWorkHistoryClick
+import net.appitiza.moderno.ui.activities.interfaces.UserClick
 import net.appitiza.moderno.utils.PreferenceHelper
 import net.appitiza.moderno.utils.Utils
 import java.text.SimpleDateFormat
@@ -183,35 +183,36 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
                         var total_payment = 0
                         var total_hours: Long = 0
                         for (document in fetchall_task.result) {
-                            Log.d(" data", document.id + " => " + document.data)
-                            val mCheckInData = CurrentCheckIndata()
-                            mCheckInData.documentid = document.id
-                            mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
-                            mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
-                            if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && !document.data[Constants.CHECKIN_CHECKIN].toString().equals("null")) {
-                                mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
-                            }
-                            if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && !document.data[Constants.CHECKIN_CHECKOUT].toString().equals("null")) {
-                                mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
-                            }
-                            mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
-                            mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
-                            mCheckInData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
-
-                            if (mCheckInData.checkintime!! >= mSelectedCalender.timeInMillis && mCheckInData.checkintime!! <= (mSelectedCalender.timeInMillis + (24L * 60L * 60L * 1000L))) {
-                                if (!mCheckInData.payment.equals("null") && mCheckInData.payment.toString() != "") {
-                                    val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
-                                    total_payment += mPayment
+                            if (document.data[Constants.CHECKIN_SITE].toString() != "0") {
+                                Log.d(" data", document.id + " => " + document.data)
+                                val mCheckInData = CurrentCheckIndata()
+                                mCheckInData.documentid = document.id
+                                mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
+                                mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && !document.data[Constants.CHECKIN_CHECKIN].toString().equals("null")) {
+                                    mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
                                 }
-                                if (mCheckInData.checkintime != 0L) {
-                                    if (mCheckInData.checkouttime != 0L) {
-                                        val mHours = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time - getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
-                                        total_hours += (mHours)
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && !document.data[Constants.CHECKIN_CHECKOUT].toString().equals("null")) {
+                                    mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                }
+                                mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
+                                mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
+                                mCheckInData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
+
+                                if (mCheckInData.checkintime!! >= mSelectedCalender.timeInMillis && mCheckInData.checkintime!! <= (mSelectedCalender.timeInMillis + (24L * 60L * 60L * 1000L))) {
+                                    if (!mCheckInData.payment.equals("null") && mCheckInData.payment.toString() != "") {
+                                        val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
+                                        total_payment += mPayment
                                     }
+                                    if (mCheckInData.checkintime != 0L) {
+                                        if (mCheckInData.checkouttime != 0L) {
+                                            val mHours = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time - getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
+                                            total_hours += (mHours)
+                                        }
+                                    }
+                                    mHistoryDaily.add(mCheckInData)
                                 }
-                                mHistoryDaily.add(mCheckInData)
                             }
-
                         }
                         tv_admin_history_daily_payment.text = getString(R.string.rupees, total_payment)
 
@@ -266,36 +267,37 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
                         var total_payment = 0
                         var total_hours: Long = 0
                         for (document in fetchall_task.result) {
-                            Log.d(" data", document.id + " => " + document.data)
+                            if (document.data[Constants.CHECKIN_SITE].toString() != "0") {
+                                Log.d(" data", document.id + " => " + document.data)
 
-                            val mCheckInData = CurrentCheckIndata()
-                            mCheckInData.documentid = document.id
-                            mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
-                            mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
-                            if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && !document.data[Constants.CHECKIN_CHECKIN].toString().equals("null")) {
-                                mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
-                            }
-                            if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && !document.data[Constants.CHECKIN_CHECKOUT].toString().equals("null")) {
-                                mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
-                            }
-                            mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
-                            mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
-                            mCheckInData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
-
-                            // if (mCheckInData.checkintime!! >= (mSelectedCalender.timeInMillis - (mSelectedCalender.get(Calendar.DAY_OF_MONTH) * 24L * 60L * 60L * 1000L)) && mCheckInData.checkintime!! <= (mSelectedCalender.timeInMillis + ((mSelectedCalender.getActualMaximum(Calendar.DATE) - mSelectedCalender.get(Calendar.DAY_OF_MONTH))* 24L * 60L * 60L * 1000L))) {
-                            if (!document.data[Constants.CHECKIN_PAYMENT].toString().equals("null") && !document.data[Constants.CHECKIN_PAYMENT].toString().equals("")) {
-                                val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
-                                total_payment += mPayment
-                            }
-                            if (mCheckInData.checkintime != 0L) {
-                                if (mCheckInData.checkouttime != 0L) {
-                                    val mHours = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time - getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
-                                    total_hours += (mHours)
+                                val mCheckInData = CurrentCheckIndata()
+                                mCheckInData.documentid = document.id
+                                mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
+                                mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && !document.data[Constants.CHECKIN_CHECKIN].toString().equals("null")) {
+                                    mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
                                 }
-                                //    }
-                                mHistoryMonthly.add(mCheckInData)
-                            }
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && !document.data[Constants.CHECKIN_CHECKOUT].toString().equals("null")) {
+                                    mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                }
+                                mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
+                                mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
+                                mCheckInData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
 
+                                // if (mCheckInData.checkintime!! >= (mSelectedCalender.timeInMillis - (mSelectedCalender.get(Calendar.DAY_OF_MONTH) * 24L * 60L * 60L * 1000L)) && mCheckInData.checkintime!! <= (mSelectedCalender.timeInMillis + ((mSelectedCalender.getActualMaximum(Calendar.DATE) - mSelectedCalender.get(Calendar.DAY_OF_MONTH))* 24L * 60L * 60L * 1000L))) {
+                                if (!document.data[Constants.CHECKIN_PAYMENT].toString().equals("null") && !document.data[Constants.CHECKIN_PAYMENT].toString().equals("")) {
+                                    val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
+                                    total_payment += mPayment
+                                }
+                                if (mCheckInData.checkintime != 0L) {
+                                    if (mCheckInData.checkouttime != 0L) {
+                                        val mHours = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time - getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
+                                        total_hours += (mHours)
+                                    }
+                                    //    }
+                                    mHistoryMonthly.add(mCheckInData)
+                                }
+                            }
                         }
                         tv_admin_history_monthly_payment.text = getString(R.string.rupees, total_payment)
 

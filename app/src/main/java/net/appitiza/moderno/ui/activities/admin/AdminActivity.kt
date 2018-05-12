@@ -50,8 +50,12 @@ class AdminActivity : AppCompatActivity() {
         ll_admin_home_userlist.setOnClickListener { loadUser() }
         ll_admin_home_pay.setOnClickListener { loadAdminPay() }
         ll_admin_home_paylist.setOnClickListener { loadAdminPayList() }
+        ll_admin_home_complete_user_report.setOnClickListener { loadAdminCompleteUserReport() }
+        ll_admin_home_income_manager.setOnClickListener { loadAdminIncomeManager() }
 
     }
+
+
 
     private fun loadSites() {
         val intent = Intent(this@AdminActivity, AdminSitesActivity::class.java)
@@ -140,7 +144,19 @@ class AdminActivity : AppCompatActivity() {
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }
+    fun loadAdminCompleteUserReport() {
 
+        val intent = Intent(this@AdminActivity, UserCompleteReportActivity::class.java)
+        val p1 = Pair(tv_admin_home_complete_user_report as View, getString(R.string.txt_adminhome_complete_user_report))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
+        startActivity(intent, options.toBundle())
+    }
+    private fun loadAdminIncomeManager() {
+        val intent = Intent(this@AdminActivity, UserCompleteReportActivity::class.java)
+        val p1 = Pair(tv_admin_home_income_manager as View, getString(R.string.txt_adminhome_income_manager))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
+        startActivity(intent, options.toBundle())
+    }
     private fun updateFcm() {
         val deviceToken: String? = FirebaseInstanceId.getInstance().token
         val map = HashMap<String, Any>()

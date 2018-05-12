@@ -493,16 +493,107 @@
                         android:transitionName="@string/txt_adminhome_device_change_request" />
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
-                android:id="@+id/ll_admin_home_paylist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_paylist"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/semi_margin"
+                    android:layout_marginRight="@dimen/semi_margin"
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/online_payment" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_paylist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/pay_user_list"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_device_change_request" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_complete_user_report"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/semi_margin"
+                    android:layout_marginStart="@dimen/semi_margin"
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/manager" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_complete_user_report"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/complete_user_report"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_complete_user_report" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_admin_home_income_manager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/semi_margin"
-                android:layout_marginLeft="@dimen/quad_margin"
                 android:layout_marginRight="@dimen/semi_margin"
-                android:layout_marginStart="@dimen/quad_margin"
+                android:layout_marginStart="@dimen/semi_margin"
+                android:layout_marginLeft="@dimen/semi_margin"
                 android:layout_marginTop="@dimen/default_margin"
+                android:layout_weight="1"
                 android:background="@drawable/admin_home_btn_bg"
                 android:orientation="horizontal"
                 android:padding="@dimen/quad_padding">
@@ -513,7 +604,7 @@
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@string/app_name"
                     android:padding="@dimen/quad_padding"
-                    android:src="@drawable/online_payment" />
+                    android:src="@drawable/increased_revenue" />
 
                 <View
                     android:layout_width="1dp"
@@ -523,7 +614,7 @@
                     android:background="@color/white" />
 
                 <TextView
-                    android:id="@+id/tv_admin_home_paylist"
+                    android:id="@+id/tv_admin_home_income_manager"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -531,11 +622,11 @@
                     android:layout_marginStart="@dimen/semi_margin"
                     android:fontFamily="@font/roboto"
                     android:gravity="center_vertical|left|start"
-                    android:text="@string/pay_user_list"
+                    android:text="@string/income_manager"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_medium"
-                    android:transitionName="@string/txt_adminhome_device_change_request" />
+                    android:transitionName="@string/txt_adminhome_income_manager" />
             </LinearLayout>
 
         </LinearLayout>

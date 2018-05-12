@@ -119,6 +119,16 @@
             android:theme="@style/MainMaterialTheme.Base.admin"
             android:windowSoftInputMode="stateHidden" />
         <activity
+            android:name=".ui.activities.admin.UserCompleteReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.admin"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.admin.IncomManagerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.admin"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".ui.activities.users.UsersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MainMaterialTheme.Base.user"
