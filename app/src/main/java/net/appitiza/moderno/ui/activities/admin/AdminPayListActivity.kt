@@ -120,6 +120,7 @@ class AdminPayListActivity : BaseActivity(), AdminPayClick, UserClick {
         else
         {
             db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
+                    .whereEqualTo(Constants.CHECKIN_SITE, "0")
                     .get()
                     .addOnCompleteListener { fetchall_task ->
                         mProgress?.dismiss()
