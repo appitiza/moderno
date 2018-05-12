@@ -21,6 +21,7 @@ import net.appitiza.moderno.ui.activities.interfaces.AdminPayClick
 import net.appitiza.moderno.ui.activities.interfaces.UserClick
 import net.appitiza.moderno.utils.PreferenceHelper
 import net.appitiza.moderno.utils.Utils
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AdminPayListActivity : BaseActivity(), AdminPayClick, UserClick {
@@ -82,7 +83,8 @@ class AdminPayListActivity : BaseActivity(), AdminPayClick, UserClick {
     private fun loadPay() {
         mPayList.clear()
         if (user!!.emailId != "all") {
-            db.collection(Constants.COLLECTION_CHECKIN_HISTORY).whereEqualTo(Constants.CHECKIN_USEREMAIL, user!!.emailId)
+            db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
+                    .whereEqualTo(Constants.CHECKIN_USEREMAIL, user!!.emailId)
                     .whereEqualTo(Constants.CHECKIN_SITE, "0")
                     .get()
                     .addOnCompleteListener { fetchall_task ->
@@ -96,7 +98,7 @@ class AdminPayListActivity : BaseActivity(), AdminPayClick, UserClick {
                                 mData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
                                 mData.user = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mData.username = document.data[Constants.CHECKIN_USERNAME].toString()
-                                mData.time = document.data[Constants.CHECKIN_CHECKIN].toString()
+                                mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
 
 
                                 if (!mData.payment.equals("null") && mData.payment.toString() != "") {
@@ -134,7 +136,7 @@ class AdminPayListActivity : BaseActivity(), AdminPayClick, UserClick {
                                 mData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
                                 mData.user = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mData.username = document.data[Constants.CHECKIN_USERNAME].toString()
-                                mData.time = document.data[Constants.CHECKIN_CHECKIN].toString()
+                                mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
 
 
                                 if (!mData.payment.equals("null") && mData.payment.toString() != "") {
@@ -200,7 +202,11 @@ class AdminPayListActivity : BaseActivity(), AdminPayClick, UserClick {
 
 
     }
-
+    private fun getDate(date: String): Date {
+        val format = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH)
+        val value: Date = format.parse(date)
+        return value
+    }
     override fun onClick(data: AdminPayData) {
 
     }

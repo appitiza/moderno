@@ -6,6 +6,6 @@ class AdminPayData {
     var user: String? = null
     var username: String? = null
     var reason: String = ""
-    var time: String = ""
+    var time: Long = 0
 
 }

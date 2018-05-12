@@ -8,6 +8,8 @@ import kotlinx.android.synthetic.main.item_admin_pay.view.*
 import net.appitiza.moderno.R
 import net.appitiza.moderno.model.AdminPayData
 import net.appitiza.moderno.ui.activities.interfaces.AdminPayClick
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AdminPayAdapter(private val mList: ArrayList<AdminPayData>, private val callback: AdminPayClick) : RecyclerView.Adapter<AdminPayAdapter.AdminPayHolder>() {
 
@@ -37,9 +39,16 @@ class AdminPayAdapter(private val mList: ArrayList<AdminPayData>, private val ca
             itemView.tv_payitem_user.text = data.username
             itemView.tv_payitem_payment.text = data.payment + " ₹."
             itemView.tv_payitem_reason.text = data.reason
-            itemView.tv_payitem_date.text = data.time
+            itemView.tv_payitem_date.text = getDate(data.time!!.toLong(), "dd MMM yyyy")
 
 
+        }
+        private fun getDate(milli: Long, dateFormat: String): String {
+            val format = SimpleDateFormat(dateFormat, Locale.ENGLISH)
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = milli
+            val value = format.format(calendar.time)
+            return value
         }
     }
 
