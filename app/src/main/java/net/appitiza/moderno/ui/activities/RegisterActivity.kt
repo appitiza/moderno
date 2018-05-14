@@ -26,7 +26,6 @@ import net.appitiza.moderno.ui.activities.users.UsersActivity
 import net.appitiza.moderno.utils.PreferenceHelper
 import net.appitiza.moderno.utils.Utils
 import java.util.*
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 
 
 class RegisterActivity : BaseActivity() {
@@ -54,9 +53,6 @@ class RegisterActivity : BaseActivity() {
             } else {
                 requestPermissions()
             }
-        }
-        tv_register_libraries.setOnClickListener {
-            startActivity(Intent(this, OssLicensesMenuActivity::class.java))
         }
     }
 

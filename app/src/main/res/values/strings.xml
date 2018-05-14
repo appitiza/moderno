@@ -75,6 +75,9 @@
     <string name="transition_adminhome_complete_user_report">txt_adminhome_complete_user_report</string>
     <string name="txt_adminhome_complete_user_report">txt_adminhome_complete_user_report</string>
 
+    <string name="transition_adminhome_add_income">txt_adminhome_add_income</string>
+    <string name="txt_adminhome_add_income">txt_adminhome_add_income</string>
+
     <string name="transition_adminhome_income_manager">txt_adminhome_income_manager</string>
     <string name="txt_adminhome_income_manager">txt_adminhome_income_manager</string>
 
@@ -222,4 +225,10 @@
     <string name="view_on_map">View On Map</string>
     <string name="complete_user_report">User Report</string>
     <string name="income_manager">Income Manager</string>
+    <string name="income_reports">Income Report</string>
+    <string name="add_income">Add Income</string>
+    <string name="add_ammount">Add Amount</string>
+    <string name="payment_recieved_e">Payment recieved to employee</string>
+    <string name="payment_recieved_a">payment recieved to admin</string>
+    <string name="pending">Pending Amount</string>
 </resources>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:transitionName="@string/transition_adminhome_sitesreprt">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/admin_top_bg">
+        <include layout="@layout/top_layout" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        android:background="@drawable/admin_container_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/double_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="@string/add_income"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:transitionName="@string/txt_adminhome_sitesreport"
+                android:textSize="@dimen/text_size_large" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/quad_margin"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/default_margin"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="@string/select_site_txt"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_medium" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/semi_margin"
+                android:background="@drawable/et_bg">
+
+                <Spinner
+                    android:id="@+id/spnr_admin_add_income_site"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent" />
+
+                <ImageView
+                    android:id="@+id/iv_admin_add_income_report_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/default_padding"
+                    android:src="@drawable/down_arrow"
+                    android:contentDescription="@string/app_name" />
+            </RelativeLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/default_margin"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="@string/payment"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_medium" />
+
+            <EditText
+                android:id="@+id/et_admin_add_income_payment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/semi_margin"
+                android:background="@drawable/et_bg"
+                android:inputType="number"
+                android:longClickable="false"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:padding="@dimen/semi_padding"
+                android:textColor="@color/colorPrimaryDark_admin" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/default_margin"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="@string/reason"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_medium" />
+
+            <EditText
+                android:id="@+id/et_admin_add_income_reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/semi_margin"
+                android:background="@drawable/et_bg"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:padding="@dimen/semi_padding"
+                android:textColor="@color/colorPrimaryDark_admin" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/default_margin"
+                android:background="@color/admin_home_btn_strock" />
+
+            <TextView
+                android:id="@+id/tv_admin_submit_add_income"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:padding="@dimen/default_padding"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_large" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/admin_home_btn_strock" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

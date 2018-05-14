@@ -51,6 +51,7 @@ class AdminActivity : AppCompatActivity() {
         ll_admin_home_pay.setOnClickListener { loadAdminPay() }
         ll_admin_home_paylist.setOnClickListener { loadAdminPayList() }
         ll_admin_home_complete_user_report.setOnClickListener { loadAdminCompleteUserReport() }
+        ll_admin_home_add_income.setOnClickListener { loadAdminAddIncome() }
         ll_admin_home_income_manager.setOnClickListener { loadAdminIncomeManager() }
 
     }
@@ -148,6 +149,12 @@ class AdminActivity : AppCompatActivity() {
 
         val intent = Intent(this@AdminActivity, UserCompleteReportActivity::class.java)
         val p1 = Pair(tv_admin_home_complete_user_report as View, getString(R.string.txt_adminhome_complete_user_report))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
+        startActivity(intent, options.toBundle())
+    }
+    private fun loadAdminAddIncome() {
+        val intent = Intent(this@AdminActivity, UserCompleteReportActivity::class.java)
+        val p1 = Pair(tv_admin_home_add_income as View, getString(R.string.txt_adminhome_add_income))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }

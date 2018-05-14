@@ -124,17 +124,7 @@
             android:layout_height="1dp"
             android:background="@color/line_login" />
 
-        <TextView
-            android:id="@+id/tv_register_libraries"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:padding="@dimen/default_padding"
-            android:text="@string/libraries_used"
-            android:textColor="@color/white"
-            android:transitionName="@string/register_login_register"
-            android:textSize="@dimen/text_size_large"/>
+
     </LinearLayout>
 
 </LinearLayout>
