@@ -153,13 +153,13 @@ class AdminActivity : AppCompatActivity() {
         startActivity(intent, options.toBundle())
     }
     private fun loadAdminAddIncome() {
-        val intent = Intent(this@AdminActivity, UserCompleteReportActivity::class.java)
+        val intent = Intent(this@AdminActivity, AddIncomeActivity::class.java)
         val p1 = Pair(tv_admin_home_add_income as View, getString(R.string.txt_adminhome_add_income))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }
     private fun loadAdminIncomeManager() {
-        val intent = Intent(this@AdminActivity, UserCompleteReportActivity::class.java)
+        val intent = Intent(this@AdminActivity, IncomManagerActivity::class.java)
         val p1 = Pair(tv_admin_home_income_manager as View, getString(R.string.txt_adminhome_income_manager))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
