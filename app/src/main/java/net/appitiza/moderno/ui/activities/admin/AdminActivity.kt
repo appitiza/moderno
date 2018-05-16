@@ -53,6 +53,8 @@ class AdminActivity : AppCompatActivity() {
         ll_admin_home_complete_user_report.setOnClickListener { loadAdminCompleteUserReport() }
         ll_admin_home_add_income.setOnClickListener { loadAdminAddIncome() }
         ll_admin_home_income_manager.setOnClickListener { loadAdminIncomeManager() }
+        ll_admin_home_add_income_catogary.setOnClickListener { loadAdminIncomeCategory() }
+        ll_admin_home_add_expense_category.setOnClickListener { loadAdminExpenseCategory() }
 
     }
 
@@ -161,6 +163,18 @@ class AdminActivity : AppCompatActivity() {
     private fun loadAdminIncomeManager() {
         val intent = Intent(this@AdminActivity, IncomManagerActivity::class.java)
         val p1 = Pair(tv_admin_home_income_manager as View, getString(R.string.txt_adminhome_income_manager))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
+        startActivity(intent, options.toBundle())
+    }
+    private fun loadAdminIncomeCategory() {
+        val intent = Intent(this@AdminActivity, IncomeCategoryActivity::class.java)
+        val p1 = Pair(tv_admin_home_add_income_catogery as View, getString(R.string.txt_adminhome_add_income_category))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
+        startActivity(intent, options.toBundle())
+    }
+    private fun loadAdminExpenseCategory() {
+        val intent = Intent(this@AdminActivity, IncomeCategoryActivity::class.java)
+        val p1 = Pair(tv_admin_home_add_expense_category as View, getString(R.string.txt_adminhome_add_expense_category))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }

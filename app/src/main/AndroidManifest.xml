@@ -128,7 +128,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/MainMaterialTheme.Base.admin"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".ui.activities.admin.AddIncomeActivity"
+        <activity
+            android:name=".ui.activities.admin.AddIncomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.admin"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.admin.ExpenseCategoryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.admin"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.admin.IncomeCategoryActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MainMaterialTheme.Base.admin"
             android:windowSoftInputMode="stateHidden" />

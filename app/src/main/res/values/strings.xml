@@ -81,6 +81,12 @@
     <string name="transition_adminhome_income_manager">txt_adminhome_income_manager</string>
     <string name="txt_adminhome_income_manager">txt_adminhome_income_manager</string>
 
+    <string name="transition_adminhome_add_income_category">txt_adminhome_add_income_category</string>
+    <string name="txt_adminhome_add_income_category">txt_adminhome_add_income_category</string>
+
+    <string name="transition_adminhome_add_expense_category">txt_adminhome_add_expense_category</string>
+    <string name="txt_adminhome_add_expense_category">txt_adminhome_add_expense_category</string>
+
     <string name="transition_usershome_notification">usershome_notification</string>
     <string name="txt_usershome_notification">txt_usershome_notification</string>
 
@@ -231,4 +237,15 @@
     <string name="payment_recieved_e">Payment recieved to employee</string>
     <string name="payment_recieved_a">payment recieved to admin</string>
     <string name="pending">Pending Amount</string>
+    <string name="payment_history">payment history</string>
+    <string name="transaction_history">transaction history</string>
+    <string name="add_income_category">income category</string>
+    <string name="expense_category">expense category</string>
+    <string name="expense_title">expense title</string>
+    <string name="add">add</string>
+    <string name="income_title">Income title</string>
+    <string name="adding_category">adding_category</string>
+    <string name="expense_category_addded">Expense Category Added</string>
+    <string name="please_fill_necessary_detail">Please Fill Necessary Details</string>
+    <string name="income_category_addded">Income Category Added</string>
 </resources>

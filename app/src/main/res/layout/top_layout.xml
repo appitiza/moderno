@@ -3,7 +3,8 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:padding="@dimen/double_padding"
-    android:src="@drawable/signart_final"
+
     android:contentDescription="@string/app_name"
     android:transitionName="@string/splash_other"
     xmlns:android="http://schemas.android.com/apk/res/android" />
+    <!--android:src="@drawable/signart_final"-->

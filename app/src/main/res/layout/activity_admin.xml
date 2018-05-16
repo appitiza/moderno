@@ -535,7 +535,7 @@
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
                         android:gravity="center_vertical|left|start"
-                        android:text="@string/pay_user_list"
+                        android:text="@string/payment_history"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_medium"
@@ -577,7 +577,7 @@
                         android:layout_marginStart="@dimen/semi_margin"
                         android:fontFamily="@font/roboto"
                         android:gravity="center_vertical|left|start"
-                        android:text="@string/complete_user_report"
+                        android:text="@string/transaction_history"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_medium"
@@ -677,7 +677,97 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_add_income_catogary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/semi_margin"
+                    android:layout_marginRight="@dimen/semi_margin"
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/online_payment" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_add_income_catogery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/add_income_category"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_add_income_category" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_admin_home_add_expense_category"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/semi_margin"
+                    android:layout_marginRight="@dimen/semi_margin"
+                    android:layout_weight="1"
+                    android:background="@drawable/admin_home_btn_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/quad_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/quad_padding"
+                        android:src="@drawable/increased_revenue" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/quad_margin"
+                        android:layout_marginStart="@dimen/quad_margin"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_home_add_expense_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/semi_margin"
+                        android:layout_marginStart="@dimen/semi_margin"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|left|start"
+                        android:text="@string/expense_category"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium"
+                        android:transitionName="@string/txt_adminhome_add_expense_category" />
+                </LinearLayout>
+            </LinearLayout>
 
 
         </LinearLayout>
