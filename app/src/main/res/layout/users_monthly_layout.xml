@@ -47,8 +47,8 @@
             android:textStyle="bold" />
 
         <View
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/default_padding"
+            android:layout_height="1dp"
             android:layout_marginTop="@dimen/quad_margin"
             android:background="@color/users_home_btn_strock" />
 
@@ -72,6 +72,7 @@
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/quad_padding"
             android:src="@drawable/magnifying_glass" />
     </LinearLayout>
 

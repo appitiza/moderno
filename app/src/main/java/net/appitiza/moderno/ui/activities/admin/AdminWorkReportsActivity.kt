@@ -88,9 +88,9 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
         ll_admin_daily_root.visibility = View.GONE
         ll_admin_monthly_root.visibility = View.GONE
         mSelectedCalender.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), mSelectedCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
-        mSelectedStartCalender.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), mSelectedStartCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
+        mSelectedStartCalender.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), 1, 0, 0, 1)
         tv_admin_history_monthly_start.text = Utils.convertDate(mSelectedStartCalender.timeInMillis, "dd MMM yyyy")
-        mSelectedEndCalender.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedEndCalender.get(Calendar.MONTH) + 1, 1, 0, 0, 1)
+        mSelectedEndCalender.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), mSelectedCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
         tv_admin_history_monthly_end.text = Utils.convertDate(mSelectedEndCalender.timeInMillis, "dd MMM yyyy")
 
         tv_admin_work_report_daily_date.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
@@ -334,17 +334,20 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
         val mDay = c.get(Calendar.DAY_OF_MONTH)
         val datePickerDialog = android.app.DatePickerDialog(this,
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                    mSelectedCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
+
                     if (from == 0) {
+                        mSelectedCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
                         tv_admin_work_report_daily_date.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
                         loadDaily()
                     } else if (from == 1){
-                        tv_admin_history_monthly_start.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
+                        mSelectedStartCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
+                        tv_admin_history_monthly_start.text = Utils.convertDate(mSelectedStartCalender.timeInMillis, "dd MMM yyyy")
                         loadCalendar(2)
                     }
                     else
                     {
-                        tv_admin_history_monthly_end.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
+                        mSelectedEndCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
+                        tv_admin_history_monthly_end.text = Utils.convertDate(mSelectedEndCalender.timeInMillis, "dd MMM yyyy")
                         loadMonthly()
                     }
 

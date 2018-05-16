@@ -64,9 +64,9 @@ class UserHistoryActivity : BaseActivity() {
         ll_users_monthly_root.visibility = View.GONE
         mSelectedCalender.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), mSelectedCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
 
-        mSelectedStartCalender.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), mSelectedStartCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
+        mSelectedStartCalender.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), 1, 0, 0, 1)
         tv_user_history_monthly_start.text = Utils.convertDate(mSelectedStartCalender.timeInMillis, "dd MMM yyyy")
-        mSelectedEndCalender.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedEndCalender.get(Calendar.MONTH) + 1, 1, 0, 0, 1)
+        mSelectedEndCalender.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), mSelectedCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
         tv_user_history_monthly_end.text = Utils.convertDate(mSelectedEndCalender.timeInMillis, "dd MMM yyyy")
 
 
@@ -91,16 +91,19 @@ class UserHistoryActivity : BaseActivity() {
         val mDay = c.get(Calendar.DAY_OF_MONTH)
         val datePickerDialog = android.app.DatePickerDialog(this,
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                    mSelectedCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
+
 
                     if (from == 0) {
+                        mSelectedCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
                         tv_useres_history_daily_date.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
                         loadDaily()
                     } else if (from == 1) {
-                        tv_user_history_monthly_start.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
+                        mSelectedStartCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
+                        tv_user_history_monthly_start.text = Utils.convertDate(mSelectedStartCalender.timeInMillis, "dd MMM yyyy")
                         loadCalendar(2)
                     } else {
-                        tv_user_history_monthly_end.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
+                        mSelectedEndCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
+                        tv_user_history_monthly_end.text = Utils.convertDate(mSelectedEndCalender.timeInMillis, "dd MMM yyyy")
                         loadMonthly()
                     }
 
@@ -212,9 +215,9 @@ class UserHistoryActivity : BaseActivity() {
         mProgress?.show()
 
         val mCalender1 = Calendar.getInstance()
-        mCalender1.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), 1, 0, 0, 1)
+        mCalender1.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), mSelectedStartCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
         val mCalender2 = Calendar.getInstance()
-        mCalender2.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH) + 1, 1, 23, 59, 59)
+        mCalender2.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedEndCalender.get(Calendar.MONTH) , mSelectedEndCalender.get(Calendar.DAY_OF_MONTH), 23, 59, 59)
 
 
         mHistoryMonthly.clear()
