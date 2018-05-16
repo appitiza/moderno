@@ -259,4 +259,6 @@
     <string name="category_not_selected">Category not selected</string>
     <string name="payment_missing">Payment Information missing</string>
     <string name="reason_missing">Reason  missing</string>
+    <string name="end_date">End Date</string>
+    <string name="start_date">Start Date</string>
 </resources>

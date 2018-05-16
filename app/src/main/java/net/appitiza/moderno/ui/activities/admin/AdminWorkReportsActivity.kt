@@ -57,6 +57,8 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
     private lateinit var adapterMonthly: AdminHistoryAdapter
 
     private val mSelectedCalender = Calendar.getInstance()
+    private val mSelectedStartCalender = Calendar.getInstance()
+    private val mSelectedEndCalender = Calendar.getInstance()
 
     var isDailyClicked = true
 
@@ -86,8 +88,9 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
         ll_admin_daily_root.visibility = View.GONE
         ll_admin_monthly_root.visibility = View.GONE
         mSelectedCalender.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), mSelectedCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
-        tv_admin_history_monthly_year.text = Utils.convertDate(mSelectedCalender.timeInMillis, "yyyy")
-        tv_admin_history_monthly_monthly.text = Utils.convertDate(mSelectedCalender.timeInMillis, "MMMM")
+        tv_admin_history_monthly_start.text = Utils.convertDate(mSelectedStartCalender.timeInMillis, "dd MMM yyyy")
+        mSelectedEndCalender.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedEndCalender.get(Calendar.MONTH) + 1, 1, 0, 0, 1)
+        tv_admin_history_monthly_end.text = Utils.convertDate(mSelectedEndCalender.timeInMillis, "dd MMM yyyy")
 
         tv_admin_work_report_daily_date.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
     }
@@ -114,8 +117,9 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
         tv_admin_history_daily.setOnClickListener { loadDaily() }
         tv_admin_history_monthly.setOnClickListener { loadMonthly() }
         tv_admin_work_report_daily_date.setOnClickListener { loadCalendar(0) }
-        tv_admin_history_monthly_year.setOnClickListener { loadCalendar(1) }
-        tv_admin_history_monthly_monthly.setOnClickListener { loadCalendar(1) }
+        tv_admin_history_monthly_start.setOnClickListener { loadCalendar(1) }
+        tv_admin_history_monthly_end.setOnClickListener { loadCalendar(2) }
+        iv_search.setOnClickListener{loadMonthly()}
     }
 
     private fun getUser() {
@@ -249,9 +253,9 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
         mHistoryMonthly.clear()
         mHistoryDisplay.clear()
         val mCalender1 = Calendar.getInstance()
-        mCalender1.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), 1, 0, 0, 1)
+        mCalender1.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), mSelectedStartCalender.get(Calendar.DATE), 0, 0, 1)
         val mCalender2 = Calendar.getInstance()
-        mCalender2.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH) + 1, 1, 23, 59, 59)
+        mCalender2.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedEndCalender.get(Calendar.MONTH),  mSelectedEndCalender.get(Calendar.DATE), 23, 59, 59)
 
 
 
@@ -333,10 +337,13 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
                     if (from == 0) {
                         tv_admin_work_report_daily_date.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
                         loadDaily()
-                    } else {
-                        tv_admin_history_monthly_year.text = Utils.convertDate(mSelectedCalender.timeInMillis, "yyyy")
-                        tv_admin_history_monthly_monthly.text = Utils.convertDate(mSelectedCalender.timeInMillis, "MMMM")
-
+                    } else if (from == 1){
+                        tv_admin_history_monthly_start.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
+                        loadCalendar(2)
+                    }
+                    else
+                    {
+                        tv_admin_history_monthly_end.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
                         loadMonthly()
                     }
 
