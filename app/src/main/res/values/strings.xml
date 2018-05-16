@@ -261,4 +261,5 @@
     <string name="reason_missing">Reason  missing</string>
     <string name="end_date">End Date</string>
     <string name="start_date">Start Date</string>
+    <string name="select_range">Select range</string>
 </resources>
