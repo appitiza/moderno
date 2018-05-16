@@ -15,6 +15,8 @@ class Constants {
         const val COLLECTION_SITE = "sites"
         const val COLLECTION_CHECKIN_DATA = "checkin"
         const val COLLECTION_CHECKIN_HISTORY = "checkin_history"
+        const val COLLECTION_INCOME = "income_details"
+        const val COLLECTION_EXPENSE = "expense_details"
         const val COLLECTION_EXPENCE_CATEGORY = "expense_category"
         const val COLLECTION_INCOME_CATEGORY = "income_category"
         const val DOCUMENT_USER = "users"
@@ -70,6 +72,16 @@ class Constants {
         const val EXPENSE_TIME = "time"
         const val INCOME_TITLE = "income_title"
         const val INCOME_TIME = "time"
+
+
+        const val INCOME_EXPENSE_SITE_ID = "site_id"
+        const val INCOME_EXPENSE_SITE_NAME = "site_name"
+        const val INCOME_EXPENSE_CATEGORY_ID = "category_id"
+        const val INCOME_EXPENSE_CATEGORY_NAME = "category_name"
+        const val INCOME_EXPENSE_TIME = "time"
+        const val INCOME_EXPENSE_PAYMENT = "payment"
+        const val INCOME_EXPENSE_REASON = "reason"
+
 
 
 

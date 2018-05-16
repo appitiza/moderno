@@ -81,7 +81,41 @@
                     android:contentDescription="@string/app_name" />
             </RelativeLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/default_margin"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="@string/select_income_category"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_medium" />
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/semi_margin"
+                android:background="@drawable/et_bg">
+
+                <Spinner
+                    android:id="@+id/spnr_admin_add_income_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent" />
+
+                <ImageView
+                    android:id="@+id/iv_admin_add_income_category_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/default_padding"
+                    android:src="@drawable/down_arrow"
+                    android:contentDescription="@string/app_name" />
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
