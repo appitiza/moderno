@@ -39,6 +39,9 @@ class UserHistoryActivity : BaseActivity() {
     private lateinit var adapterMonthly: UserHistoryAdapter
     private val mSelectedCalender = Calendar.getInstance()
 
+    private val mSelectedStartCalender = Calendar.getInstance()
+    private val mSelectedEndCalender = Calendar.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_history)
@@ -60,8 +63,13 @@ class UserHistoryActivity : BaseActivity() {
         ll_users_daily_root.visibility = View.GONE
         ll_users_monthly_root.visibility = View.GONE
         mSelectedCalender.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), mSelectedCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
-        tv_user_history_monthly_year.text = Utils.convertDate(mSelectedCalender.timeInMillis, "yyyy")
-        tv_user_history_monthly_monthly.text = Utils.convertDate(mSelectedCalender.timeInMillis, "MMMM")
+
+        mSelectedStartCalender.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), mSelectedStartCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
+        tv_user_history_monthly_start.text = Utils.convertDate(mSelectedStartCalender.timeInMillis, "dd MMM yyyy")
+        mSelectedEndCalender.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedEndCalender.get(Calendar.MONTH) + 1, 1, 0, 0, 1)
+        tv_user_history_monthly_end.text = Utils.convertDate(mSelectedEndCalender.timeInMillis, "dd MMM yyyy")
+
+
 
         tv_useres_history_daily_date.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
 
@@ -72,8 +80,8 @@ class UserHistoryActivity : BaseActivity() {
         tv_user_history_daily.setOnClickListener { loadDaily() }
         tv_user_history_monthly.setOnClickListener { loadMonthly() }
         tv_useres_history_daily_date.setOnClickListener { loadCalendar(0) }
-        tv_user_history_monthly_year.setOnClickListener { loadCalendar(1) }
-        tv_user_history_monthly_monthly.setOnClickListener { loadCalendar(1) }
+        tv_user_history_monthly_start.setOnClickListener { loadCalendar(1) }
+        tv_user_history_monthly_end.setOnClickListener { loadCalendar(1) }
     }
 
     private fun loadCalendar(from: Int) {
@@ -85,16 +93,17 @@ class UserHistoryActivity : BaseActivity() {
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                     mSelectedCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
 
-
                     if (from == 0) {
                         tv_useres_history_daily_date.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
                         loadDaily()
+                    } else if (from == 1) {
+                        tv_user_history_monthly_start.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
+                        loadCalendar(2)
                     } else {
-                        tv_user_history_monthly_year.text = Utils.convertDate(mSelectedCalender.timeInMillis, "yyyy")
-                        tv_user_history_monthly_monthly.text = Utils.convertDate(mSelectedCalender.timeInMillis, "MMMM")
-
+                        tv_user_history_monthly_end.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
                         loadMonthly()
                     }
+
                 }, mYear, mMonth, mDay)
 
         datePickerDialog.datePicker.maxDate = System.currentTimeMillis() - 1000

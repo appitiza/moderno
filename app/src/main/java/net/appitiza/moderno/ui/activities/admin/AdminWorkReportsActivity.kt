@@ -88,6 +88,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
         ll_admin_daily_root.visibility = View.GONE
         ll_admin_monthly_root.visibility = View.GONE
         mSelectedCalender.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), mSelectedCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
+        mSelectedStartCalender.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), mSelectedStartCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
         tv_admin_history_monthly_start.text = Utils.convertDate(mSelectedStartCalender.timeInMillis, "dd MMM yyyy")
         mSelectedEndCalender.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedEndCalender.get(Calendar.MONTH) + 1, 1, 0, 0, 1)
         tv_admin_history_monthly_end.text = Utils.convertDate(mSelectedEndCalender.timeInMillis, "dd MMM yyyy")
@@ -253,9 +254,9 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
         mHistoryMonthly.clear()
         mHistoryDisplay.clear()
         val mCalender1 = Calendar.getInstance()
-        mCalender1.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), mSelectedStartCalender.get(Calendar.DATE), 0, 0, 1)
+        mCalender1.set(mSelectedStartCalender.get(Calendar.YEAR), mSelectedStartCalender.get(Calendar.MONTH), mSelectedStartCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
         val mCalender2 = Calendar.getInstance()
-        mCalender2.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedEndCalender.get(Calendar.MONTH),  mSelectedEndCalender.get(Calendar.DATE), 23, 59, 59)
+        mCalender2.set(mSelectedEndCalender.get(Calendar.YEAR), mSelectedEndCalender.get(Calendar.MONTH),  mSelectedEndCalender.get(Calendar.DAY_OF_MONTH), 23, 59, 59)
 
 
 
