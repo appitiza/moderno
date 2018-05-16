@@ -173,7 +173,7 @@ class AdminActivity : AppCompatActivity() {
         startActivity(intent, options.toBundle())
     }
     private fun loadAdminExpenseCategory() {
-        val intent = Intent(this@AdminActivity, IncomeCategoryActivity::class.java)
+        val intent = Intent(this@AdminActivity, ExpenseCategoryActivity::class.java)
         val p1 = Pair(tv_admin_home_add_expense_category as View, getString(R.string.txt_adminhome_add_expense_category))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
