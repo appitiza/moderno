@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:transitionName="@string/transition_adminhome_sitesreprt">
+    android:transitionName="@string/transition_adminhome_income_manager">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_large"
-                android:transitionName="@string/txt_adminhome_sitesreport" />
+                android:transitionName="@string/txt_adminhome_income_manager" />
 
             <View
                 android:layout_width="match_parent"

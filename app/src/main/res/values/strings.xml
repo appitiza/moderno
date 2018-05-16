@@ -78,6 +78,9 @@
     <string name="transition_adminhome_add_income">txt_adminhome_add_income</string>
     <string name="txt_adminhome_add_income">txt_adminhome_add_income</string>
 
+    <string name="transition_adminhome_add_expense">txt_adminhome_add_expense</string>
+    <string name="txt_adminhome_add_expense">txt_adminhome_add_expense</string>
+
     <string name="transition_adminhome_income_manager">txt_adminhome_income_manager</string>
     <string name="txt_adminhome_income_manager">txt_adminhome_income_manager</string>
 
