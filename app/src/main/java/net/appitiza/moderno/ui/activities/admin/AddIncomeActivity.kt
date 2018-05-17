@@ -139,7 +139,7 @@ class AddIncomeActivity : BaseActivity(), UserSiteClick {
                         for (document in fetchall_task.result) {
                             val data: Categorydata = Categorydata()
                             data.id = document.id
-                            data.title = document.data[Constants.EXPENSE_TITLE].toString()
+                            data.title = document.data[Constants.INCOME_TITLE].toString()
                             data.type = "income"
                             mCategoryList.add(data)
 
