@@ -139,12 +139,12 @@ class AddIncomeActivity : BaseActivity(), UserSiteClick {
                         for (document in fetchall_task.result) {
                             val data: Categorydata = Categorydata()
                             data.id = document.id
-                            data.title = document.data[Constants.SITE_NAME].toString()
-                            data.type = document.data[Constants.SITE_TYPE].toString()
+                            data.title = document.data[Constants.EXPENSE_TITLE].toString()
+                            data.type = "income"
                             mCategoryList.add(data)
 
                         }
-                        siteAdapter = AdminSprSiteAdapter(this, mSiteList, this)
+                        categoryAdapter = AdminSprCategoryAdapter(this, mCategoryList)
                         spnr_admin_add_income_category.adapter = categoryAdapter
                         mProgress?.dismiss()
 
@@ -167,9 +167,10 @@ class AddIncomeActivity : BaseActivity(), UserSiteClick {
             map[Constants.INCOME_EXPENSE_CATEGORY_NAME] = selectedCategory.title.toString()
             map[Constants.INCOME_EXPENSE_PAYMENT] = et_admin_add_income_payment.text.toString()
             map[Constants.INCOME_EXPENSE_REASON] = et_admin_add_income_reason.text.toString()
+            map[Constants.INCOME_EXPENSE_TYPE] = "Income"
             map[Constants.INCOME_EXPENSE_TIME] = FieldValue.serverTimestamp()
 
-            db.collection(Constants.COLLECTION_INCOME)
+            db.collection(Constants.COLLECTION_INCOME_EXPENSE)
                     .document()
                     .set(map, SetOptions.merge())
                     .addOnCompleteListener { add_task ->
