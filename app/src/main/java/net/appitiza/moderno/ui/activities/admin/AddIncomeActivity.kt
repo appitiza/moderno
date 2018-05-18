@@ -194,10 +194,10 @@ class AddIncomeActivity : BaseActivity(), UserSiteClick {
     }
 
     private fun validate(): Boolean {
-        return if (selectedSite.siteid != null) {
+        return if (selectedSite.siteid == null) {
             showValidationWarning(getString(R.string.site_not_selected))
             false
-        } else if (selectedCategory.id != null) {
+        } else if (selectedCategory.id == null) {
             showValidationWarning(getString(R.string.category_not_selected))
             false
         } else if (TextUtils.isEmpty(et_admin_add_income_payment.text.toString())) {
