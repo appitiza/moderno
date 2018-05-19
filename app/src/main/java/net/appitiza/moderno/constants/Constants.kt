@@ -16,7 +16,7 @@ class Constants {
         const val COLLECTION_CHECKIN_DATA = "checkin"
         const val COLLECTION_CHECKIN_HISTORY = "checkin_history"
         const val COLLECTION_INCOME_EXPENSE = "expense_income_details"
-        const val COLLECTION_EXPENCE_CATEGORY = "expense_category"
+        const val COLLECTION_EXPENSE_CATEGORY = "expense_category"
         const val COLLECTION_INCOME_CATEGORY = "income_category"
         const val DOCUMENT_USER = "users"
         const val CHECKIN_USER = "users_email"

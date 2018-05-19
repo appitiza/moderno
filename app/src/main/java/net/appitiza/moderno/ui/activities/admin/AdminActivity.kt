@@ -52,11 +52,13 @@ class AdminActivity : AppCompatActivity() {
         ll_admin_home_paylist.setOnClickListener { loadAdminPayList() }
         ll_admin_home_complete_user_report.setOnClickListener { loadAdminCompleteUserReport() }
         ll_admin_home_add_income.setOnClickListener { loadAdminAddIncome() }
+        ll_admin_home_add_expense.setOnClickListener { loadAdminAddExpensive() }
         ll_admin_home_income_manager.setOnClickListener { loadAdminIncomeManager() }
         ll_admin_home_add_income_catogary.setOnClickListener { loadAdminIncomeCategory() }
         ll_admin_home_add_expense_category.setOnClickListener { loadAdminExpenseCategory() }
 
     }
+
 
 
 
@@ -157,6 +159,12 @@ class AdminActivity : AppCompatActivity() {
     private fun loadAdminAddIncome() {
         val intent = Intent(this@AdminActivity, AddIncomeActivity::class.java)
         val p1 = Pair(tv_admin_home_add_income as View, getString(R.string.txt_adminhome_add_income))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
+        startActivity(intent, options.toBundle())
+    }
+    private fun loadAdminAddExpensive() {
+        val intent = Intent(this@AdminActivity, AddExpenseActivity::class.java)
+        val p1 = Pair(tv_admin_home_add_expense as View, getString(R.string.txt_adminhome_add_expense))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }

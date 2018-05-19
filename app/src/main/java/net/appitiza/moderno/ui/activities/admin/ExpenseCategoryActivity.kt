@@ -50,7 +50,7 @@ class ExpenseCategoryActivity : BaseActivity() {
             map[Constants.EXPENSE_TITLE] = title
             map[Constants.EXPENSE_TIME] = FieldValue.serverTimestamp()
 
-            db.collection(Constants.COLLECTION_EXPENCE_CATEGORY)
+            db.collection(Constants.COLLECTION_EXPENSE_CATEGORY)
                     .document()
                     .set(map, SetOptions.merge())
                     .addOnCompleteListener { add_task ->

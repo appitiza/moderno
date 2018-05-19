@@ -184,7 +184,7 @@
             </intent-filter>
         </service>
 
-
+        <activity android:name=".ui.activities.admin.AddExpenseActivity"></activity>
     </application>
 
 </manifest>

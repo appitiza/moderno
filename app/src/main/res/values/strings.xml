@@ -262,4 +262,8 @@
     <string name="end_date">End Date</string>
     <string name="start_date">Start Date</string>
     <string name="select_range">Select range</string>
+    <string name="add_expense">Add expense</string>
+    <string name="select_expense_category">select expense category</string>
+    <string name="adding_expense_details">Adding expense details..</string>
+    <string name="expense_addded">Expense Added</string>
 </resources>
