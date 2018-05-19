@@ -30,13 +30,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClick {
-    override fun onClick(data: CurrentCheckIndata) {
-        loadEdit(data)
-    }
 
-    override fun onUserClick(data: UserListdata) {
-
-    }
 
     private var isLoggedIn by PreferenceHelper(Constants.PREF_KEY_IS_USER_LOGGED_IN, false)
     private var displayName by PreferenceHelper(Constants.PREF_KEY_IS_USER_DISPLAY_NAME, "")
@@ -60,12 +54,12 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
     private val mSelectedStartCalender = Calendar.getInstance()
     private val mSelectedEndCalender = Calendar.getInstance()
 
-    var isDailyClicked = true
+    private var isDailyClicked = true
 
-    companion object {
+    /*companion object {
         var userSalary: Int = 0
-    }
-
+    }*/
+    private var userSalary: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_work_reports)
@@ -80,7 +74,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
         mHistoryDisplay = arrayListOf()
         mHistoryDaily = arrayListOf()
         mHistoryMonthly = arrayListOf()
-        adapterMonthly = AdminHistoryAdapter(applicationContext, mHistoryDisplay, this)
+        adapterMonthly = AdminHistoryAdapter(applicationContext,mHistoryDisplay, this)
         rv_adminhistory_list.adapter = adapterMonthly
         mProgress = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
@@ -125,7 +119,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
 
     private fun getUser() {
         mProgress?.setTitle(getString(R.string.app_name))
-        mProgress?.setMessage(getString(R.string.getting_site))
+        mProgress?.setMessage(getString(R.string.getting_user_list))
         mProgress?.setCancelable(false)
         mProgress?.show()
 
@@ -203,6 +197,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
                                 mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
                                 mCheckInData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
+                                mCheckInData.salary = userSalary
 
                                 if (mCheckInData.checkintime!! >= mSelectedCalender.timeInMillis && mCheckInData.checkintime!! <= (mSelectedCalender.timeInMillis + (24L * 60L * 60L * 1000L))) {
                                     if (!mCheckInData.payment.equals("null") && mCheckInData.payment.toString() != "") {
@@ -288,6 +283,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
                                 mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
                                 mCheckInData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
+                                mCheckInData.salary = userSalary
 
                                 // if (mCheckInData.checkintime!! >= (mSelectedCalender.timeInMillis - (mSelectedCalender.get(Calendar.DAY_OF_MONTH) * 24L * 60L * 60L * 1000L)) && mCheckInData.checkintime!! <= (mSelectedCalender.timeInMillis + ((mSelectedCalender.getActualMaximum(Calendar.DATE) - mSelectedCalender.get(Calendar.DAY_OF_MONTH))* 24L * 60L * 60L * 1000L))) {
                                 if (!document.data[Constants.CHECKIN_PAYMENT].toString().equals("null") && !document.data[Constants.CHECKIN_PAYMENT].toString().equals("")) {
@@ -372,5 +368,12 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
         val intent = Intent(this@AdminWorkReportsActivity, EditWorkReportActivity::class.java)
         intent.putExtra("data", data)
         startActivity(intent)
+    }
+    override fun onClick(data: CurrentCheckIndata) {
+        loadEdit(data)
+    }
+
+    override fun onUserClick(data: UserListdata) {
+
     }
 }

@@ -14,7 +14,7 @@ import net.appitiza.moderno.utils.Utils
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AdminHistoryAdapter(private var mContext: Context, private val mList: ArrayList<CurrentCheckIndata>, private val callback : AdminWorkHistoryClick) : RecyclerView.Adapter<AdminHistoryAdapter.NotificationHolder>() {
+class AdminHistoryAdapter(private var mContext: Context ,private val mList: ArrayList<CurrentCheckIndata>, private val callback : AdminWorkHistoryClick) : RecyclerView.Adapter<AdminHistoryAdapter.NotificationHolder>() {
 
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationHolder {
@@ -24,7 +24,8 @@ class AdminHistoryAdapter(private var mContext: Context, private val mList: Arra
 
     //this method is binding the data on the list
     override fun onBindViewHolder(holder: NotificationHolder, position: Int) {
-        holder.bindItems(mContext, mList[position],AdminWorkReportsActivity.userSalary)
+        val userSalary: Int = mList[position].salary
+        holder.bindItems(mContext, mList[position],userSalary)
         holder.itemView.ll_site_item_root.setOnClickListener { callback.onClick(mList[position]) }
 
     }

@@ -266,4 +266,6 @@
     <string name="select_expense_category">select expense category</string>
     <string name="adding_expense_details">Adding expense details..</string>
     <string name="expense_addded">Expense Added</string>
+    <string name="total_admin_payed">Admin Paid Amount</string>
+    <string name="getting_user_list">Fetching User List</string>
 </resources>

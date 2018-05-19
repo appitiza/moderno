@@ -11,6 +11,7 @@ class CurrentCheckIndata : Serializable {
     var useremail: String? = null
     var username: String? = null
     var payment: String? = null
+    var salary: Int = 0
 
 
 
