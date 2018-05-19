@@ -174,6 +174,7 @@
     <string name="year">Year</string>
     <string name="month">month</string>
     <string name="rupees">%1$d  ₹.</string>
+    <string name="no_pending_rupees">More %1$d  ₹ paid.</string>
     <string name="hours_symbl">%1$d Hours.</string>
     <string name="hrs_symbl">%1$d Hrs.</string>
     <string name="hr_symbl">%1$d Hr.</string>
@@ -268,4 +269,10 @@
     <string name="expense_addded">Expense Added</string>
     <string name="total_admin_payed">Admin Paid Amount</string>
     <string name="getting_user_list">Fetching User List</string>
+    <string name="payment_pending_salary">Pending Salary</string>
+    <string name="income">income</string>
+    <string name="expense">expense</string>
+    <string name="pending_amount_receive">pending Amount to receive</string>
+    <string name="profit_margin">Profit</string>
+    <string name="loss_margin">Loss</string>
 </resources>

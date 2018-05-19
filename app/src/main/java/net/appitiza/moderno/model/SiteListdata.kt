@@ -11,7 +11,7 @@ open class SiteListdata : Serializable{
      var lon: Double = 0.0
      var type: String? = null
      var date: String = ""
-     var cost: String? = null
+     var cost: Int = 0
      var contact: String? = null
      var person: String? = null
      var status: String? = null

@@ -1,8 +1,6 @@
 package net.appitiza.moderno.ui.activities.admin
 
-import android.app.DatePickerDialog
 import android.app.ProgressDialog
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -10,12 +8,12 @@ import android.view.View
 import android.widget.AdapterView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_admin_site_reports.*
 import kotlinx.android.synthetic.main.activity_incom_manager.*
 import net.appitiza.moderno.R
 import net.appitiza.moderno.adapter.AdminSprSiteAdapter
 import net.appitiza.moderno.constants.Constants
 import net.appitiza.moderno.model.CurrentCheckIndata
+import net.appitiza.moderno.model.IncomeExpenseData
 import net.appitiza.moderno.model.SiteListdata
 import net.appitiza.moderno.ui.activities.BaseActivity
 import net.appitiza.moderno.ui.activities.interfaces.UserSiteClick
@@ -37,6 +35,11 @@ class IncomManagerActivity : BaseActivity(), UserSiteClick {
     private lateinit var siteAdapter: AdminSprSiteAdapter
     private var selectedSite: SiteListdata = SiteListdata()
     private lateinit var mHistory: ArrayList<CurrentCheckIndata>
+    private lateinit var mIncomeExpenseList: ArrayList<IncomeExpenseData>
+
+    private var total_income = 0
+    private var total_expense = 0
+    private var total_payment = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_incom_manager)
@@ -48,6 +51,7 @@ class IncomManagerActivity : BaseActivity(), UserSiteClick {
 
         mSiteList = arrayListOf()
         mHistory = arrayListOf()
+        mIncomeExpenseList = arrayListOf()
         mProgress = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
@@ -91,7 +95,7 @@ class IncomManagerActivity : BaseActivity(), UserSiteClick {
                             data.sitename = document.data[Constants.SITE_NAME].toString()
                             data.type = document.data[Constants.SITE_TYPE].toString()
                             data.date = document.data[Constants.SITE_DATE].toString()
-                            data.cost = document.data[Constants.SITE_COST].toString()
+                            data.cost = document.data[Constants.SITE_COST].toString().toInt()
                             data.contact = document.data[Constants.SITE_CONTACT].toString()
                             data.person = document.data[Constants.SITE_PERSON].toString()
                             data.lat = document.data[Constants.SITE_LAT].toString().toDouble()
@@ -115,7 +119,6 @@ class IncomManagerActivity : BaseActivity(), UserSiteClick {
 
     private fun loadSiteDetails() {
 
-
         mProgress?.setTitle(getString(R.string.app_name))
         mProgress?.setMessage(getString(R.string.fetching_data))
         mProgress?.setCancelable(false)
@@ -128,7 +131,7 @@ class IncomManagerActivity : BaseActivity(), UserSiteClick {
                     mProgress?.dismiss()
 
                     if (fetchall_task.isSuccessful) {
-                        var total_payment = 0
+                        total_payment = 0
                         var total_hours : Long = 0
                         for (document in fetchall_task.result) {
                             Log.d(" data", document.id + " => " + document.data)
@@ -165,6 +168,71 @@ class IncomManagerActivity : BaseActivity(), UserSiteClick {
                         } else {
                             tv_admin_income_manager_total_hours.text = getString(R.string.not_checked_out)
                         }
+
+
+
+                    } else {
+                        Utils.showDialog(this,fetchall_task.exception.toString())
+                    }
+                }
+    }
+    private fun loadIncomeExpenseDetails() {
+
+        mProgress?.setTitle(getString(R.string.app_name))
+        mProgress?.setMessage(getString(R.string.fetching_data))
+        mProgress?.setCancelable(false)
+        mProgress?.show()
+        mHistory.clear()
+        db.collection(Constants.COLLECTION_INCOME_EXPENSE)
+                .whereEqualTo(Constants.INCOME_EXPENSE_SITE_ID,selectedSite.siteid.toString())
+                .get()
+                .addOnCompleteListener { fetchall_task ->
+                    mProgress?.dismiss()
+
+                    if (fetchall_task.isSuccessful) {
+                       total_income = 0
+                       total_expense = 0
+                        for (document in fetchall_task.result) {
+                            val mIncomeExpenseData = IncomeExpenseData()
+                            mIncomeExpenseData.id = document.id
+                            mIncomeExpenseData.siteId = document.data[Constants.INCOME_EXPENSE_SITE_ID].toString()
+                            mIncomeExpenseData.siteName = document.data[Constants.INCOME_EXPENSE_SITE_NAME].toString()
+                            mIncomeExpenseData.categoryName = document.data[Constants.INCOME_EXPENSE_CATEGORY_NAME].toString()
+                            mIncomeExpenseData.categoryId = document.data[Constants.INCOME_EXPENSE_CATEGORY_ID].toString()
+                            val mPayment = Integer.parseInt(document.data[Constants.INCOME_EXPENSE_PAYMENT].toString())
+                            mIncomeExpenseData.payment = mPayment
+                            mIncomeExpenseData.reason = document.data[Constants.INCOME_EXPENSE_REASON].toString()
+                            mIncomeExpenseData.time = getDate(document.data[Constants.INCOME_EXPENSE_TIME].toString()).time
+                            mIncomeExpenseData.type = document.data[Constants.INCOME_EXPENSE_TYPE].toString()
+
+
+                            if (mIncomeExpenseData.type == "income") {
+                                total_income += mPayment
+                            }
+                            else
+                            {
+                                total_expense += mPayment
+                            }
+
+
+                            mIncomeExpenseList.add(mIncomeExpenseData)
+
+                        }
+                        tv_admin_income_manager_income.text = getString(R.string.rupees,  total_income)
+                        tv_admin_income_manager_expense.text = getString(R.string.rupees,  total_expense)
+                        tv_admin_income_manager_pending.text = getString(R.string.rupees,  (selectedSite.cost  - (total_income + total_payment)))
+
+                        val profit = total_income  - (total_expense + total_payment)
+
+                        if(profit >= 0 )
+                        {
+                            tv_admin_income_manager_profit_title.text = getString(R.string.profit_margin)
+                            }
+                        else
+                        {
+                            tv_admin_income_manager_profit_title.text = getString(R.string.loss_margin)
+                        }
+                        tv_admin_income_manager_profit.text = getString(R.string.rupees,  profit)
 
 
 

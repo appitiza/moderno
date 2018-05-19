@@ -123,7 +123,47 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_medium" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center_vertical|left|start"
+                    android:text="@string/total_hours"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="@string/two_dot"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/tv_admin_income_manager_total_hours"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_medium" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -179,7 +219,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto"
                     android:gravity="center_vertical|left|start"
-                    android:text="@string/payment_recieved_a"
+                    android:text="@string/income"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_medium" />
@@ -207,7 +247,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_medium" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -221,7 +260,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto"
                     android:gravity="center_vertical|left|start"
-                    android:text="@string/pending"
+                    android:text="@string/expense"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_medium" />
@@ -238,7 +277,7 @@
                     android:textSize="@dimen/text_size_medium" />
 
                 <TextView
-                    android:id="@+id/tv_admin_history_daily_estimated"
+                    android:id="@+id/tv_admin_income_manager_expense"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_margin"
@@ -262,7 +301,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto"
                     android:gravity="center_vertical|left|start"
-                    android:text="@string/total_hours"
+                    android:text="@string/pending_amount_receive"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_medium" />
@@ -279,7 +318,50 @@
                     android:textSize="@dimen/text_size_medium" />
 
                 <TextView
-                    android:id="@+id/tv_admin_income_manager_total_hours"
+                    android:id="@+id/tv_admin_income_manager_pending"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_medium" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+
+                    android:id="@+id/tv_admin_income_manager_profit_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center_vertical|left|start"
+                    android:text="@string/profit_margin"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="@string/two_dot"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/tv_admin_income_manager_profit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_margin"

@@ -87,7 +87,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
 
                 user = mUserList[position]
                 userSalary = mUserList[position].salary
-                loadMonthly()
+                loadCheckInInfo()
             }
 
         }
@@ -129,7 +129,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
 
     }
 
-    private fun loadMonthly() {
+    private fun loadCheckInInfo() {
 
         mProgress?.setTitle(getString(R.string.app_name))
         mProgress?.setMessage(getString(R.string.fetching_data))
@@ -187,6 +187,16 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
 
                             tv_admin_transaction_history_total_hours.text = Utils.convertHours(total_hours)
                             tv_admin_transaction_history_estimated.text = ((total_hours / (60L * 60L * 1000L)) * userSalary).toString() + " ₹"
+
+                            var pending = (total_hours / (60L * 60L * 1000L)) * userSalary - total_payment
+                            if(pending <= 0)
+                            {
+                                tv_admin_transaction_history_pending.text = getString(R.string.rupees, pending * -1)
+                            }
+                            else
+                            {
+                                tv_admin_transaction_history_pending.text = getString(R.string.no_pending_rupees, pending)
+                            }
 
                         } else {
                             tv_admin_transaction_history_total_hours.text = getString(R.string.not_checked_out)
