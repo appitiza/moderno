@@ -174,6 +174,7 @@ class IncomManagerActivity : BaseActivity(), UserSiteClick {
                     } else {
                         Utils.showDialog(this,fetchall_task.exception.toString())
                     }
+                    loadIncomeExpenseDetails()
                 }
     }
     private fun loadIncomeExpenseDetails() {
