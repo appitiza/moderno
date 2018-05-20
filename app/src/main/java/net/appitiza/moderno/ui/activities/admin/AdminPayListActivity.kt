@@ -98,7 +98,7 @@ class AdminPayListActivity : BaseActivity(), AdminPayClick, UserClick {
                                 mData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
                                 mData.user = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mData.username = document.data[Constants.CHECKIN_USERNAME].toString()
-                                mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
 
 
                                 if (!mData.payment.equals("null") && mData.payment.toString() != "") {
@@ -136,7 +136,7 @@ class AdminPayListActivity : BaseActivity(), AdminPayClick, UserClick {
                                 mData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
                                 mData.user = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mData.username = document.data[Constants.CHECKIN_USERNAME].toString()
-                                mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
 
 
                                 if (!mData.payment.equals("null") && mData.payment.toString() != "") {

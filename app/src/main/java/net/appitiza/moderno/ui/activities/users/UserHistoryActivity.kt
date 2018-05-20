@@ -151,10 +151,10 @@ class UserHistoryActivity : BaseActivity() {
                             mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
                             mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
                             if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && document.data[Constants.CHECKIN_CHECKIN].toString() != "null") {
-                                mCheckInData.checkintime = Utils.getDateTimestamp(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
+                                mCheckInData.checkintime = Utils.getDateTimestamp(document.data[Constants.CHECKIN_CHECKIN].toString()).time
                             }
                             if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && document.data[Constants.CHECKIN_CHECKOUT].toString() != "null") {
-                                mCheckInData.checkouttime = Utils.getDateTimestamp(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                mCheckInData.checkouttime = Utils.getDateTimestamp(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
                             }
                             mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
                             mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
@@ -241,10 +241,10 @@ class UserHistoryActivity : BaseActivity() {
                             mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
                             mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
                             if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && document.data[Constants.CHECKIN_CHECKIN].toString() != "null") {
-                                mCheckInData.checkintime = Utils.getDateTimestamp(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
+                                mCheckInData.checkintime = Utils.getDateTimestamp(document.data[Constants.CHECKIN_CHECKIN].toString()).time
                             }
                             if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && document.data[Constants.CHECKIN_CHECKOUT].toString() != "null") {
-                                mCheckInData.checkouttime = Utils.getDateTimestamp(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                mCheckInData.checkouttime = Utils.getDateTimestamp(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
                             }
                             mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
                             mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()

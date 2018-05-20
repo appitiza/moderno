@@ -201,7 +201,7 @@ class UsersActivity : BaseActivity() {
                         R.string.permission_rationale,
                         Snackbar.LENGTH_INDEFINITE)
                         .setAction(R.string.ok, View.OnClickListener {
-                            val intent: Intent = Intent()
+                            val intent = Intent()
                             intent.action =  Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                             val uri: Uri = Uri.fromParts("package",
                                     BuildConfig.APPLICATION_ID, null)

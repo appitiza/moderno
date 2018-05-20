@@ -116,25 +116,25 @@ class UserReportActivity : BaseActivity(), UserSiteClick, GoogleApiClient.Connec
 
     private fun checkPermissions(): Boolean {
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            return PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
+        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)
         }
         else
         {
-            return true
+            true
         }
     }
     private fun checkIMEIPermissions(): Boolean {
 
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            return PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
+        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_PHONE_STATE)
         }
         else
         {
-            return true
+            true
         }
     }
     private fun requestPermissions() {
@@ -301,7 +301,7 @@ class UserReportActivity : BaseActivity(), UserSiteClick, GoogleApiClient.Connec
 
 
         db.collection(Constants.COLLECTION_CHECKIN_DATA)
-                .document(mCheckInData.documentid.toString())
+                .document(mCheckInData.documentid)
                 .set(map, SetOptions.merge())
                 .addOnCompleteListener { checkin_task ->
                     if (checkin_task.isSuccessful) {
@@ -324,7 +324,7 @@ class UserReportActivity : BaseActivity(), UserSiteClick, GoogleApiClient.Connec
         mProgress?.setCancelable(false)
         mProgress?.show()
         db.collection(Constants.COLLECTION_CHECKIN_DATA)
-                .document(mCheckInData.documentid.toString())
+                .document(mCheckInData.documentid)
                 .delete()
                 .addOnCompleteListener { clear_task ->
                     if (clear_task.isSuccessful) {
@@ -381,7 +381,7 @@ class UserReportActivity : BaseActivity(), UserSiteClick, GoogleApiClient.Connec
         map[Constants.CHECKIN_CHECKOUT] = FieldValue.serverTimestamp()
         map[Constants.CHECKIN_PAYMENT] = et_users_site_payment.text.toString()
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
-                .document(mCheckInData.documentid.toString())
+                .document(mCheckInData.documentid)
                 .set(map, SetOptions.merge())
                 .addOnCompleteListener { sync_task ->
                     if (sync_task.isSuccessful) {
@@ -413,10 +413,10 @@ class UserReportActivity : BaseActivity(), UserSiteClick, GoogleApiClient.Connec
                             mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
                             mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
                             if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && document.data[Constants.CHECKIN_CHECKIN].toString() != "null") {
-                                mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
+                                mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
                             }
                             if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && document.data[Constants.CHECKIN_CHECKOUT].toString() != "null") {
-                                mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
                             }
                             mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
 

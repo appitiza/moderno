@@ -166,7 +166,7 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
                     if (fetchall_task.isSuccessful) {
                         for (document in fetchall_task.result) {
                             // Log.d(FragmentActivity.TAG, document.id + " => " + document.getData())
-                            val data: SiteListdata = SiteListdata()
+                            val data = SiteListdata()
                             data.siteid = document.id
                             data.sitename = document.data[Constants.SITE_NAME].toString()
                             data.type = document.data[Constants.SITE_TYPE].toString()

@@ -188,11 +188,11 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
                                 mCheckInData.documentid = document.id
                                 mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
                                 mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
-                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && !document.data[Constants.CHECKIN_CHECKIN].toString().equals("null")) {
-                                    mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && document.data[Constants.CHECKIN_CHECKIN].toString() != "null") {
+                                    mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
                                 }
-                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && !document.data[Constants.CHECKIN_CHECKOUT].toString().equals("null")) {
-                                    mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && document.data[Constants.CHECKIN_CHECKOUT].toString() != "null") {
+                                    mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
                                 }
                                 mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
@@ -274,11 +274,11 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
                                 mCheckInData.documentid = document.id
                                 mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
                                 mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
-                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && !document.data[Constants.CHECKIN_CHECKIN].toString().equals("null")) {
-                                    mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && document.data[Constants.CHECKIN_CHECKIN].toString() != "null") {
+                                    mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
                                 }
-                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && !document.data[Constants.CHECKIN_CHECKOUT].toString().equals("null")) {
-                                    mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && document.data[Constants.CHECKIN_CHECKOUT].toString() != "null") {
+                                    mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
                                 }
                                 mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
@@ -286,7 +286,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
                                 mCheckInData.salary = userSalary
 
                                 // if (mCheckInData.checkintime!! >= (mSelectedCalender.timeInMillis - (mSelectedCalender.get(Calendar.DAY_OF_MONTH) * 24L * 60L * 60L * 1000L)) && mCheckInData.checkintime!! <= (mSelectedCalender.timeInMillis + ((mSelectedCalender.getActualMaximum(Calendar.DATE) - mSelectedCalender.get(Calendar.DAY_OF_MONTH))* 24L * 60L * 60L * 1000L))) {
-                                if (!document.data[Constants.CHECKIN_PAYMENT].toString().equals("null") && !document.data[Constants.CHECKIN_PAYMENT].toString().equals("")) {
+                                if (document.data[Constants.CHECKIN_PAYMENT].toString() != "null" && document.data[Constants.CHECKIN_PAYMENT].toString() != "") {
                                     val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
                                     total_payment += mPayment
                                 }

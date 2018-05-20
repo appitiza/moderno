@@ -37,7 +37,7 @@ class ExpenseCategoryActivity : BaseActivity() {
         mProgress = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
-
+        mList = arrayListOf()
         rv_category_expense.layoutManager = LinearLayoutManager(this)
         adapter = ExpenseIncomeCategoryAdapter(mList)
         rv_category_expense.adapter = adapter

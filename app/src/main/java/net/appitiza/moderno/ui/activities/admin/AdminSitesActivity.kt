@@ -142,7 +142,7 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
                         R.string.permission_rationale,
                         Snackbar.LENGTH_INDEFINITE)
                         .setAction(R.string.ok, View.OnClickListener {
-                            val intent: Intent = Intent()
+                            val intent = Intent()
                             intent.action =  Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                             val uri: Uri = Uri.fromParts("package",
                                     BuildConfig.APPLICATION_ID, null)
@@ -173,7 +173,7 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
                     if (fetchall_task.isSuccessful) {
                         for (document in fetchall_task.result) {
                             // Log.d(FragmentActivity.TAG, document.id + " => " + document.getData())
-                            val data: SiteListdata = SiteListdata()
+                            val data = SiteListdata()
                             data.siteid = document.id
                             data.sitename = document.data[Constants.SITE_NAME].toString()
                             data.type = document.data[Constants.SITE_TYPE].toString()
@@ -217,7 +217,7 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
                     if (fetchall_task.isSuccessful) {
                         for (document in fetchall_task.result) {
                             // Log.d(FragmentActivity.TAG, document.id + " => " + document.getData())
-                            val data: SiteListdata = SiteListdata()
+                            val data = SiteListdata()
                             data.siteid = document.id
                             data.sitename = document.data[Constants.SITE_NAME].toString()
                             data.type = document.data[Constants.SITE_TYPE].toString()
@@ -255,7 +255,7 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
                     if (fetchall_task.isSuccessful) {
                         for (document in fetchall_task.result) {
                             // Log.d(FragmentActivity.TAG, document.id + " => " + document.getData())
-                            val data: SiteListdata = SiteListdata()
+                            val data = SiteListdata()
                             data.siteid = document.id
                             data.sitename = document.data[Constants.SITE_NAME].toString()
                             data.type = document.data[Constants.SITE_TYPE].toString()

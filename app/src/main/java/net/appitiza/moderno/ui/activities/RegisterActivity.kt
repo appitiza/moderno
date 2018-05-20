@@ -140,11 +140,11 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun checkPermissions(): Boolean {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            return PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
+        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_PHONE_STATE)
         } else {
-            return true
+            true
         }
 
     }
@@ -184,7 +184,7 @@ class RegisterActivity : BaseActivity() {
                         R.string.permission_rationale,
                         Snackbar.LENGTH_INDEFINITE)
                         .setAction(R.string.ok, View.OnClickListener {
-                            val intent: Intent = Intent()
+                            val intent = Intent()
                             intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                             val uri: Uri = Uri.fromParts("package",
                                     BuildConfig.APPLICATION_ID, null)

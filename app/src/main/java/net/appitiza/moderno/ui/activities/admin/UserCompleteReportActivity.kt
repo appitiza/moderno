@@ -157,18 +157,18 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                                 mCheckInData.documentid = document.id
                                 mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
                                 mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
-                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && !document.data[Constants.CHECKIN_CHECKIN].toString().equals("null")) {
-                                    mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && document.data[Constants.CHECKIN_CHECKIN].toString() != "null") {
+                                    mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
                                 }
-                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && !document.data[Constants.CHECKIN_CHECKOUT].toString().equals("null")) {
-                                    mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && document.data[Constants.CHECKIN_CHECKOUT].toString() != "null") {
+                                    mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
                                 }
                                 mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
                                 mCheckInData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
                                 mCheckInData.salary = userSalary
 
-                                if (!document.data[Constants.CHECKIN_PAYMENT].toString().equals("null") && !document.data[Constants.CHECKIN_PAYMENT].toString().equals("")) {
+                                if (document.data[Constants.CHECKIN_PAYMENT].toString() != "null" && document.data[Constants.CHECKIN_PAYMENT].toString() != "") {
                                     val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
                                     total_payment += mPayment
                                 }
@@ -188,7 +188,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                             tv_admin_transaction_history_total_hours.text = Utils.convertHours(total_hours)
                             tv_admin_transaction_history_estimated.text = ((total_hours / (60L * 60L * 1000L)) * userSalary).toString() + " ₹"
 
-                            var pending = (total_hours / (60L * 60L * 1000L)) * userSalary - total_payment
+                            val pending = (total_hours / (60L * 60L * 1000L)) * userSalary - total_payment
                             if(pending <= 0)
                             {
                                 tv_admin_transaction_history_pending.text = getString(R.string.rupees, pending * -1)
@@ -230,7 +230,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                                 mData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
                                 mData.user = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mData.username = document.data[Constants.CHECKIN_USERNAME].toString()
-                                mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
 
 
                                 if (!mData.payment.equals("null") && mData.payment.toString() != "") {

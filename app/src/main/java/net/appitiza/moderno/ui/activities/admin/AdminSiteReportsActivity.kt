@@ -92,7 +92,7 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
                     if (fetchall_task.isSuccessful) {
                         for (document in fetchall_task.result) {
                             // Log.d(FragmentActivity.TAG, document.id + " => " + document.getData())
-                            val data: SiteListdata = SiteListdata()
+                            val data = SiteListdata()
                             data.siteid = document.id
                             data.sitename = document.data[Constants.SITE_NAME].toString()
                             data.type = document.data[Constants.SITE_TYPE].toString()
@@ -144,9 +144,10 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
                             mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
 
                             if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && document.data[Constants.CHECKIN_CHECKIN].toString() != "null") {
-                                mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()   }
-                            if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && !document.data[Constants.CHECKIN_CHECKOUT].toString().equals("null")) {
-                                mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
+                            }
+                            if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && document.data[Constants.CHECKIN_CHECKOUT].toString() != "null") {
+                                mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
                             }
 
                             mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()

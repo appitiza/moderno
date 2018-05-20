@@ -67,7 +67,7 @@ class IncomManagerActivity : BaseActivity(), UserSiteClick {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
                 selectedSite = mSiteList[position]
-                tv_admin_income_manager_projectcost.text = getString(R.string.rupees,  mSiteList[position].cost?.toInt())
+                tv_admin_income_manager_projectcost.text = getString(R.string.rupees, mSiteList[position].cost)
 
                 loadSiteDetails()
             }
@@ -141,9 +141,10 @@ class IncomManagerActivity : BaseActivity(), UserSiteClick {
                             mCheckInData.sitename = document.data[Constants.CHECKIN_SITENAME].toString()
 
                             if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKIN].toString()) && document.data[Constants.CHECKIN_CHECKIN].toString() != "null") {
-                                mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time.toLong()   }
-                            if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && !document.data[Constants.CHECKIN_CHECKOUT].toString().equals("null")) {
-                                mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time.toLong()
+                                mCheckInData.checkintime = getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
+                            }
+                            if (!TextUtils.isEmpty(document.data[Constants.CHECKIN_CHECKOUT].toString()) && document.data[Constants.CHECKIN_CHECKOUT].toString() != "null") {
+                                mCheckInData.checkouttime = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
                             }
 
                             mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()

@@ -188,14 +188,14 @@ class AdminPayActivity : BaseActivity(), UserClick, UserSiteClick {
     }
 
     private fun validate(): Boolean {
-        if (TextUtils.isEmpty(et_admin_pay_user_payment.text.toString())) {
+        return if (TextUtils.isEmpty(et_admin_pay_user_payment.text.toString())) {
             Utils.showDialog(this, getString(R.string.please_provide_payment_amount))
-            return false
+            false
         } else if (TextUtils.isEmpty(et_admin_pay_date.text.toString())) {
             Utils.showDialog(this, getString(R.string.please_provide_payment_amount))
-            return false
+            false
         } else {
-            return true
+            true
         }
 
     }

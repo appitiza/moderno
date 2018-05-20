@@ -17,7 +17,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="@xml/backup_descriptor">
         <activity
             android:name=".ui.activities.SplashActivity"
             android:screenOrientation="portrait"
@@ -143,6 +144,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/MainMaterialTheme.Base.admin"
             android:windowSoftInputMode="stateHidden" />
+
+        <activity android:name=".ui.activities.admin.AddExpenseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.admin"
+            android:windowSoftInputMode="stateHidden"   />
         <activity
             android:name=".ui.activities.users.UsersActivity"
             android:screenOrientation="portrait"
@@ -184,7 +190,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ui.activities.admin.AddExpenseActivity"></activity>
+
     </application>
 
 </manifest>

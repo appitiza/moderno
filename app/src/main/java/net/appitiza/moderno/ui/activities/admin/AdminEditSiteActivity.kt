@@ -111,7 +111,7 @@ class AdminEditSiteActivity : BaseActivity(), GoogleApiClient.ConnectionCallback
         } else {
             spnr_admin_edit_type.setSelection(1)
         }
-        et_admin_edit_start_date.setText(data.date.toString())
+        et_admin_edit_start_date.setText(data.date)
         et_admin_edit_project_cost.setText(data.cost.toString())
         et_admin_edit_contact_number.setText(data.contact.toString())
         et_admin_edit_contact_person.setText(data.person.toString())
@@ -334,7 +334,7 @@ class AdminEditSiteActivity : BaseActivity(), GoogleApiClient.ConnectionCallback
                         R.string.permission_rationale,
                         Snackbar.LENGTH_INDEFINITE)
                         .setAction(R.string.ok, View.OnClickListener {
-                            val intent: Intent = Intent()
+                            val intent = Intent()
                             intent.action =  Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                             val uri: Uri = Uri.fromParts("package",
                                     BuildConfig.APPLICATION_ID, null)

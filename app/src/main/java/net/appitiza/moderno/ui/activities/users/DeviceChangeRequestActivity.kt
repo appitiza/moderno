@@ -111,7 +111,7 @@ class DeviceChangeRequestActivity : BaseActivity() {
         } else if (TextUtils.isEmpty(reason)) {
             showValidationWarning(getString(R.string.message_missing))
             false
-        } else if (TextUtils.isEmpty(useremail.toString())) {
+        } else if (TextUtils.isEmpty(useremail)) {
             showValidationWarning(getString(R.string.user_missing))
             false
         } else {
@@ -120,13 +120,13 @@ class DeviceChangeRequestActivity : BaseActivity() {
     }
 
     private fun checkPermissions(): Boolean {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            return PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
+        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_PHONE_STATE)
         }
         else
         {
-            return true
+            true
         }
     }
 

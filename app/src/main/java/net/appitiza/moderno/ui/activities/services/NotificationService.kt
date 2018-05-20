@@ -26,7 +26,7 @@ class NotificationService : FirebaseMessagingService() {
         }
 
         // Check if message contains a data payload.
-        if (remoteMessage.data.size > 0) {
+        if (remoteMessage.data.isNotEmpty()) {
 
             try {
                 val json = JSONObject(remoteMessage.data.toString())

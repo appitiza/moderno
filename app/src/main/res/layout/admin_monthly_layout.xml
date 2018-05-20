@@ -73,7 +73,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/quad_padding"
-            android:src="@drawable/magnifying_glass" />
+            android:src="@drawable/magnifying_glass"
+            android:contentDescription="TODO" />
 
     </LinearLayout>
 

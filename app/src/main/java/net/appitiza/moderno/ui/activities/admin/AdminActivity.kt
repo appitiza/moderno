@@ -118,7 +118,7 @@ class AdminActivity : AppCompatActivity() {
         startActivity(intent, options.toBundle())
     }
 
-    fun loadDeviceChangeRequests() {
+    private fun loadDeviceChangeRequests() {
 
         val intent = Intent(this@AdminActivity, DeviceChangeRequestsActivity::class.java)
         val p1 = Pair(tv_admin_home_change_device_resquests as View, getString(R.string.txt_adminhome_device_change_request))
@@ -126,7 +126,7 @@ class AdminActivity : AppCompatActivity() {
         startActivity(intent, options.toBundle())
     }
 
-    fun loadUser() {
+    private fun loadUser() {
 
         val intent = Intent(this@AdminActivity, UserListActivity::class.java)
         val p1 = Pair(tv_admin_home_userlist as View, getString(R.string.txt_adminhome_userlist))
@@ -134,7 +134,7 @@ class AdminActivity : AppCompatActivity() {
         startActivity(intent, options.toBundle())
     }
 
-    fun loadAdminPay() {
+    private fun loadAdminPay() {
 
         val intent = Intent(this@AdminActivity, AdminPayActivity::class.java)
         val p1 = Pair(tv_admin_home_pay as View, getString(R.string.txt_adminhome_pay))
@@ -142,14 +142,14 @@ class AdminActivity : AppCompatActivity() {
         startActivity(intent, options.toBundle())
     }
 
-    fun loadAdminPayList() {
+    private fun loadAdminPayList() {
 
         val intent = Intent(this@AdminActivity, AdminPayListActivity::class.java)
         val p1 = Pair(tv_admin_home_paylist as View, getString(R.string.txt_adminhome_paylist))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }
-    fun loadAdminCompleteUserReport() {
+    private fun loadAdminCompleteUserReport() {
 
         val intent = Intent(this@AdminActivity, UserCompleteReportActivity::class.java)
         val p1 = Pair(tv_admin_home_complete_user_report as View, getString(R.string.txt_adminhome_complete_user_report))

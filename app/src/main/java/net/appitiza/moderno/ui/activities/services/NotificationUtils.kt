@@ -16,6 +16,7 @@ import android.text.TextUtils
 import net.appitiza.moderno.R
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.util.*
 
 
 class NotificationUtils(private var mContext: Context){
@@ -124,7 +125,7 @@ class NotificationUtils(private var mContext: Context){
     }
 
     private fun getTimeMilliSec(timeStamp: String): Long {
-        val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
         try {
             val date = format.parse(timeStamp)
             return date.time
