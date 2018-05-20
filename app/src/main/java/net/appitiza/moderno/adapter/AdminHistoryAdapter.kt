@@ -14,16 +14,16 @@ import net.appitiza.moderno.utils.Utils
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AdminHistoryAdapter(private var mContext: Context ,private val mList: ArrayList<CurrentCheckIndata>, private val callback : AdminWorkHistoryClick) : RecyclerView.Adapter<AdminHistoryAdapter.NotificationHolder>() {
+class AdminHistoryAdapter(private var mContext: Context ,private val mList: ArrayList<CurrentCheckIndata>, private val callback : AdminWorkHistoryClick) : RecyclerView.Adapter<AdminHistoryAdapter.HistoryHolder>() {
 
     //this method is returning the view for each item in the list
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_admin_history, parent, false)
-        return NotificationHolder(v)
+        return HistoryHolder(v)
     }
 
     //this method is binding the data on the list
-    override fun onBindViewHolder(holder: NotificationHolder, position: Int) {
+    override fun onBindViewHolder(holder: HistoryHolder, position: Int) {
         val userSalary: Int = mList[position].salary
         holder.bindItems(mContext, mList[position],userSalary)
         holder.itemView.ll_site_item_root.setOnClickListener { callback.onClick(mList[position]) }
@@ -36,7 +36,7 @@ class AdminHistoryAdapter(private var mContext: Context ,private val mList: Arra
     }
 
     //the class is hodling the list view
-    class NotificationHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class HistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(mContext: Context, data: CurrentCheckIndata,salary :Int) {
             itemView.tv_historyitem_date.text = getDate(data.checkintime!!.toLong(), "dd MMM yyyy")

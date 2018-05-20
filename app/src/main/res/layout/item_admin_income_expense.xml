@@ -4,77 +4,60 @@
     android:id="@+id/ll_site_item_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/semi_margin"
         android:orientation="horizontal"
         android:padding="@dimen/semi_padding"
         android:weightSum="5">
 
         <TextView
-            android:id="@+id/tv_date"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight=".9"
-            android:fontFamily="@font/roboto"
-            android:gravity="center_vertical|left"
-            android:text="@string/date"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_small"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_type"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight=".9"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:text="@string/type"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_small"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_category"
+            android:id="@+id/tv_income_expense_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:text="@string/category"
+            android:gravity="center_vertical|left"
+            android:text="@string/date"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_small"
-            android:textStyle="bold" />
+            android:textSize="@dimen/text_size_small" />
+
 
         <TextView
-            android:id="@+id/tv_reason"
+            android:id="@+id/tv_income_expense_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight=".9"
             android:fontFamily="@font/roboto"
             android:gravity="center"
-            android:text="@string/reason"
+            android:text="@string/work_site"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_small"
-            android:textStyle="bold" />
+            android:textSize="@dimen/text_size_small" />
 
 
         <TextView
-            android:id="@+id/tv_payment"
+            android:id="@+id/tv_income_expense_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight=".9"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="@string/hours"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small" />
+        <TextView
+            android:id="@+id/tv_income_expense_reason"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -84,8 +67,20 @@
             android:text="@string/payment"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_small"
-            android:textStyle="bold" />
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/tv_income_expense_payment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.2"
+            android:fontFamily="@font/roboto"
+            android:gravity="center_vertical|right"
+            android:text="@string/payment"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small" />
     </LinearLayout>
 
 

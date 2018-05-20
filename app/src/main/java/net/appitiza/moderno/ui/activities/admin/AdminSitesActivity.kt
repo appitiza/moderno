@@ -278,9 +278,23 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
     }
 
     override fun onSiteClick(data: SiteListdata) {
-        val intent = Intent(this@AdminSitesActivity, AdminEditSiteActivity::class.java)
-        intent.putExtra("site_data", data)
-        startActivity(intent)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+            if (!checkPermissions()) {
+                requestPermissions()
+            } else {
+                val intent = Intent(this@AdminSitesActivity, AdminEditSiteActivity::class.java)
+                intent.putExtra("site_data", data)
+                startActivity(intent)
+            }
+
+        } else {
+            val intent = Intent(this@AdminSitesActivity, AdminEditSiteActivity::class.java)
+            intent.putExtra("site_data", data)
+            startActivity(intent)
+        }
+
     }
 
 

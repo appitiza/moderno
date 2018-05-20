@@ -90,6 +90,9 @@
     <string name="transition_adminhome_add_expense_category">txt_adminhome_add_expense_category</string>
     <string name="txt_adminhome_add_expense_category">txt_adminhome_add_expense_category</string>
 
+    <string name="transition_adminhome_income_expense">txt_adminhome_income_expense</string>
+    <string name="txt_adminhome_income_expense">txt_adminhome_income_expense</string>
+
     <string name="transition_usershome_notification">usershome_notification</string>
     <string name="txt_usershome_notification">txt_usershome_notification</string>
 
@@ -277,4 +280,6 @@
     <string name="loss_margin">Loss</string>
     <string name="category_list">Category list</string>
     <string name="income_expense_status">Income Expense Status</string>
+    <string name="category">Category</string>
+    <string name="type">type</string>
 </resources>

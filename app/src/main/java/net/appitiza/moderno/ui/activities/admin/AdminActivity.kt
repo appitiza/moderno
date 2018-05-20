@@ -56,6 +56,8 @@ class AdminActivity : AppCompatActivity() {
         ll_admin_home_income_manager.setOnClickListener { loadAdminIncomeManager() }
         ll_admin_home_add_income_catogary.setOnClickListener { loadAdminIncomeCategory() }
         ll_admin_home_add_expense_category.setOnClickListener { loadAdminExpenseCategory() }
+        ll_admin_home_income_expense.setOnClickListener { loadAdminIncomeExpense() }
+
 
     }
 
@@ -186,6 +188,12 @@ class AdminActivity : AppCompatActivity() {
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
         startActivity(intent, options.toBundle())
     }
+    private fun loadAdminIncomeExpense() {
+        val intent = Intent(this@AdminActivity, IncomeExpenseStatusActivity::class.java)
+        val p1 = Pair(tv_admin_home_income_expense as View, getString(R.string.txt_adminhome_income_expense))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AdminActivity, p1)
+        startActivity(intent, options.toBundle())
+    }
     private fun updateFcm() {
         val deviceToken: String? = FirebaseInstanceId.getInstance().token
         val map = HashMap<String, Any>()
@@ -194,7 +202,7 @@ class AdminActivity : AppCompatActivity() {
                 .document(useremail)
                 .set(map, SetOptions.merge())
         if (usertype == "user") {
-            FirebaseMessaging.getInstance().subscribeToTopic("notification");
+            FirebaseMessaging.getInstance().subscribeToTopic("notification")
         }
     }
 

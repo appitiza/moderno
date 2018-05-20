@@ -868,7 +868,7 @@
                         android:textAllCaps="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_medium"
-                        android:transitionName="@string/txt_adminhome_add_expense_category" />
+                        android:transitionName="@string/txt_adminhome_income_expense" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
