@@ -149,6 +149,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/MainMaterialTheme.Base.admin"
             android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ui.activities.admin.IncomeExpenseStatusActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.admin"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name=".ui.activities.users.UsersActivity"
             android:screenOrientation="portrait"
@@ -190,7 +194,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ui.activities.admin.IncomeExpenseStatusActivity"></activity>
+
     </application>
 
 </manifest>

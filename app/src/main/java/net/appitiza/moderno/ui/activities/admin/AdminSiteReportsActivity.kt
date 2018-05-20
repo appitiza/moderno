@@ -54,10 +54,11 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
         mProgress = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
-        mSelectedCalender.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), mSelectedCalender.get(Calendar.DAY_OF_MONTH),0,0,1)
+        mSelectedCalender.set(mSelectedCalender.get(Calendar.YEAR), mSelectedCalender.get(Calendar.MONTH), mSelectedCalender.get(Calendar.DAY_OF_MONTH), 0, 0, 1)
         tv_admin_site_report_calendar.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
 
     }
+
     private fun setClick() {
 
         spnr_admin_site_report.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -111,7 +112,7 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
                         mProgress?.dismiss()
 
                     } else {
-                        Utils.showDialog(this,fetchall_task.exception.toString())
+                        Utils.showDialog(this, fetchall_task.exception.toString())
 
                     }
                 }
@@ -128,14 +129,14 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
         mProgress?.show()
         mHistory.clear()
         db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
-                .whereEqualTo(Constants.CHECKIN_SITE,selectedSite.siteid.toString())
+                .whereEqualTo(Constants.CHECKIN_SITE, selectedSite.siteid.toString())
                 .get()
                 .addOnCompleteListener { fetchall_task ->
                     mProgress?.dismiss()
 
                     if (fetchall_task.isSuccessful) {
                         var total_payment = 0
-                        var total_hours : Long = 0
+                        var total_hours: Long = 0
                         for (document in fetchall_task.result) {
                             Log.d(" data", document.id + " => " + document.data)
                             val mCheckInData = CurrentCheckIndata()
@@ -156,14 +157,14 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
                                 val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
                                 total_payment += mPayment
                             }
-                            if(mCheckInData.checkintime != 0L && mCheckInData.checkouttime != 0L) {
+                            if (mCheckInData.checkintime != 0L && mCheckInData.checkouttime != 0L) {
                                 val mHours = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time - getDate(document.data[Constants.CHECKIN_CHECKIN].toString()).time
                                 total_hours += (mHours)
                             }
                             mHistory.add(mCheckInData)
 
                         }
-                        tv_admin_sitereport_payment.text = getString(R.string.rupees,  total_payment)
+                        tv_admin_sitereport_payment.text = getString(R.string.rupees, total_payment)
 
                         if (total_hours > 0) {
 
@@ -174,31 +175,25 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
                         }
 
 
-                        if(Utils.getDate(selectedSite!!.date,"dd MMM yyyy").before(mSelectedCalender.time)){
-                            val day : Int = Utils.convertDays(Utils.getDate(selectedSite!!.date,"dd MMM yyyy").time,mSelectedCalender.timeInMillis).toInt()
-                            if(day > 1)
-                            {
-                                tv_admin_sitereport_days.text = getString(R.string.days_symbl,  day)
-                            }
-                            else
-                            {
-                                tv_admin_sitereport_days.text = getString(R.string.day_symbl,  day)
-                            }
+                        if (Utils.getDate(selectedSite!!.date, "dd MMM yyyy").before(mSelectedCalender.time)) {
+                            val day: Int = Utils.convertDays(Utils.getDate(selectedSite!!.date, "dd MMM yyyy").time, mSelectedCalender.timeInMillis).toInt()
 
-                        }
-                        else
-                        {
+                            tv_admin_sitereport_days.text = getString(R.string.days_symbl, day)
+
+
+                        } else {
                             tv_admin_sitereport_days.text = getString(R.string.not_checked_out)
                         }
 
 
                     } else {
-                        Utils.showDialog(this,fetchall_task.exception.toString())
+                        Utils.showDialog(this, fetchall_task.exception.toString())
                     }
                 }
     }
+
     private fun getDate(date: String): Date {
-        val format = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy",Locale.ENGLISH)
+        val format = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH)
         val value: Date = format.parse(date)
         return value
     }
@@ -210,7 +205,7 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
         val mDay = c.get(Calendar.DAY_OF_MONTH)
         val datePickerDialog = android.app.DatePickerDialog(this,
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                    mSelectedCalender.set(year, monthOfYear, dayOfMonth,0,0,1)
+                    mSelectedCalender.set(year, monthOfYear, dayOfMonth, 0, 0, 1)
                     tv_admin_site_report_calendar.text = Utils.convertDate(mSelectedCalender.timeInMillis, "dd MMM yyyy")
                     loadSiteDetails()
                 }, mYear, mMonth, mDay)
@@ -222,6 +217,7 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
         datePickerDialog.setCancelable(false)
         datePickerDialog.show()
     }
+
     override fun onSiteClick(data: SiteListdata) {
 
 

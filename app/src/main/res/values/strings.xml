@@ -180,9 +180,10 @@
     <string name="no_pending_rupees">More %1$d  ₹ paid.</string>
     <string name="hours_symbl">%1$d Hours.</string>
     <string name="hrs_symbl">%1$d Hrs.</string>
-    <string name="hr_symbl">%1$d Hr.</string>
-    <string name="days_symbl">%1$d Days</string>
-    <string name="day_symbl">%1$d Day</string>
+    <plurals name="days_symbl">
+        <item quantity="one">%1$d Day</item>
+        <item quantity="other">%1$d Days</item>
+    </plurals>
     <string name="minutes_symbl">%1$d Minutes.</string>
     <string name="at_time">AT\n%1$s</string>
     <string name="select_users">select user</string>
