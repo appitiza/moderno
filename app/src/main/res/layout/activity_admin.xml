@@ -846,7 +846,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/app_name"
                         android:padding="@dimen/quad_padding"
-                        android:src="@drawable/category_expense" />
+                        android:src="@drawable/revenue" />
 
                     <View
                         android:layout_width="1dp"
