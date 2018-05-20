@@ -185,7 +185,7 @@
     <string name="select_users">select user</string>
     <string name="not_checked_in_any_where">Not checked in any where</string>
     <string name="not_checked_out">-</string>
-    <string name="ok">ok</string>
+    <string name="ok">OK</string>
     <string name="settings">Settings</string>
 
     <string name="location_updated">Location Updated: %1$s</string>
@@ -234,12 +234,12 @@
     <string name="total_payment">Total Payment</string>
     <string name="view_on_map">View On Map</string>
     <string name="complete_user_report">User Report</string>
-    <string name="income_manager">Income Manager</string>
+    <string name="income_manager">Income Status</string>
     <string name="income_reports">Income Report</string>
     <string name="add_income">Add Income</string>
     <string name="add_ammount">Add Amount</string>
-    <string name="payment_recieved_e">Payment recieved to employee</string>
-    <string name="payment_recieved_a">payment recieved to admin</string>
+    <string name="payment_recieved_e">Payment received to employee</string>
+    <string name="payment_recieved_a">payment received to admin</string>
     <string name="pending">Pending Amount</string>
     <string name="payment_history">payment history</string>
     <string name="transaction_history">transaction history</string>
@@ -248,7 +248,7 @@
     <string name="expense_title">expense title</string>
     <string name="add">add</string>
     <string name="income_title">Income title</string>
-    <string name="adding_category">adding_category</string>
+    <string name="adding_category">adding category</string>
     <string name="expense_category_addded">Expense Category Added</string>
     <string name="please_fill_necessary_detail">Please Fill Necessary Details</string>
     <string name="income_category_addded">Income Category Added</string>
@@ -275,4 +275,6 @@
     <string name="pending_amount_receive">pending Amount to receive</string>
     <string name="profit_margin">Profit</string>
     <string name="loss_margin">Loss</string>
+    <string name="category_list">Category list</string>
+    <string name="income_expense_status">Income Expense Status</string>
 </resources>
