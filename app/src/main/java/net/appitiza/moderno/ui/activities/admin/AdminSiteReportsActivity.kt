@@ -178,7 +178,7 @@ class AdminSiteReportsActivity : BaseActivity(), UserSiteClick {
                         if (Utils.getDate(selectedSite!!.date, "dd MMM yyyy").before(mSelectedCalender.time)) {
                             val day: Int = Utils.convertDays(Utils.getDate(selectedSite!!.date, "dd MMM yyyy").time, mSelectedCalender.timeInMillis).toInt()
 
-                            tv_admin_sitereport_days.text = getString(R.string.days_symbl, day)
+                            tv_admin_sitereport_days.text = resources.getQuantityString(R.plurals.days_symbl, day)
 
 
                         } else {
