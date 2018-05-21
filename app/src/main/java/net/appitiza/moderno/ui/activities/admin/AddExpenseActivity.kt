@@ -167,7 +167,7 @@ class AddExpenseActivity : BaseActivity(), UserSiteClick {
             map[Constants.INCOME_EXPENSE_CATEGORY_NAME] = selectedCategory.title.toString()
             map[Constants.INCOME_EXPENSE_PAYMENT] = et_admin_add_expense_payment.text.toString()
             map[Constants.INCOME_EXPENSE_REASON] = et_admin_add_expense_reason.text.toString()
-            map[Constants.INCOME_EXPENSE_TYPE] = "Income"
+            map[Constants.INCOME_EXPENSE_TYPE] = "expense"
             map[Constants.INCOME_EXPENSE_TIME] = FieldValue.serverTimestamp()
 
             db.collection(Constants.COLLECTION_INCOME_EXPENSE)
