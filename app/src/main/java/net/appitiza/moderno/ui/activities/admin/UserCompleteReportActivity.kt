@@ -177,7 +177,13 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                                 }
                             }
                         }
-                        tv_admin_transaction_history_payment.text = getString(R.string.rupees, total_payment)
+                        if(total_payment > 0) {
+                            tv_admin_transaction_history_payment.text = getString(R.string.rupees, total_payment)
+                        }
+                        else
+                        {
+                            tv_admin_transaction_history_payment.text = getString(R.string.not_checked_out)
+                        }
 
                         if (total_hours > 0) {
 
@@ -194,6 +200,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                         } else {
                             tv_admin_transaction_history_total_hours.text = getString(R.string.not_checked_out)
                             tv_admin_transaction_history_estimated.text = getString(R.string.not_checked_out)
+                            tv_admin_transaction_history_pending.text = getString(R.string.not_checked_out)
                         }
 
 
