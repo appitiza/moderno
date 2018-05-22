@@ -9,8 +9,6 @@ import android.view.View
 import android.widget.AdapterView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_admin_pay_list.*
-import kotlinx.android.synthetic.main.activity_admin_work_reports.*
 import kotlinx.android.synthetic.main.activity_user_complete_report.*
 import net.appitiza.moderno.R
 import net.appitiza.moderno.adapter.AdminHistoryAdapter
@@ -151,8 +149,6 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                         var total_hours: Long = 0
                         for (document in fetchall_task.result) {
                             if (document.data[Constants.CHECKIN_SITE].toString() != "0") {
-                                Log.d(" data", document.id + " => " + document.data)
-
                                 val mCheckInData = CurrentCheckIndata()
                                 mCheckInData.documentid = document.id
                                 mCheckInData.siteid = document.data[Constants.CHECKIN_SITE].toString()
@@ -189,12 +185,9 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                             tv_admin_transaction_history_estimated.text = ((total_hours / (60L * 60L * 1000L)) * userSalary).toString() + " ₹"
 
                             val pending = (total_hours / (60L * 60L * 1000L)) * userSalary - total_payment
-                            if(pending <= 0)
-                            {
+                            if (pending <= 0) {
                                 tv_admin_transaction_history_pending.text = getString(R.string.rupees, pending * -1)
-                            }
-                            else
-                            {
+                            } else {
                                 tv_admin_transaction_history_pending.text = getString(R.string.no_pending_rupees, pending)
                             }
 
@@ -213,42 +206,43 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                     loadPay()
                 }
     }
+
     private fun loadPay() {
         mPayList.clear()
-            db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
-                    .whereEqualTo(Constants.CHECKIN_USEREMAIL, user!!.emailId)
-                    .whereEqualTo(Constants.CHECKIN_SITE, "0")
-                    .get()
-                    .addOnCompleteListener { fetchall_task ->
-                        mProgress?.dismiss()
+        db.collection(Constants.COLLECTION_CHECKIN_HISTORY)
+                .whereEqualTo(Constants.CHECKIN_USEREMAIL, user!!.emailId)
+                .whereEqualTo(Constants.CHECKIN_SITE, "0")
+                .get()
+                .addOnCompleteListener { fetchall_task ->
+                    mProgress?.dismiss()
 
-                        if (fetchall_task.isSuccessful) {
-                            var total_payment = 0
-                            for (document in fetchall_task.result) {
-                                val mData = AdminPayData()
-                                mData.adminPayId = document.id
-                                mData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
-                                mData.user = document.data[Constants.CHECKIN_USEREMAIL].toString()
-                                mData.username = document.data[Constants.CHECKIN_USERNAME].toString()
-                                mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
+                    if (fetchall_task.isSuccessful) {
+                        var total_payment = 0
+                        for (document in fetchall_task.result) {
+                            val mData = AdminPayData()
+                            mData.adminPayId = document.id
+                            mData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
+                            mData.user = document.data[Constants.CHECKIN_USEREMAIL].toString()
+                            mData.username = document.data[Constants.CHECKIN_USERNAME].toString()
+                            mData.time = getDate(document.data[Constants.CHECKIN_CHECKOUT].toString()).time
 
 
-                                if (!mData.payment.equals("null") && mData.payment.toString() != "") {
-                                    val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
-                                    total_payment += mPayment
-                                }
-
-                                mPayList.add(mData)
-
+                            if (!mData.payment.equals("null") && mData.payment.toString() != "") {
+                                val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())
+                                total_payment += mPayment
                             }
-                            payAdapter.notifyDataSetChanged()
-                            tv_admin_transaction_history_admin_paid_amount.text = getString(R.string.rupees, total_payment)
 
-                        } else {
-                            Utils.showDialog(this, fetchall_task.exception.toString())
-                            Log.e("With time", fetchall_task.exception.toString())
+                            mPayList.add(mData)
+
                         }
+                        payAdapter.notifyDataSetChanged()
+                        tv_admin_transaction_history_admin_paid_amount.text = getString(R.string.rupees, total_payment)
+
+                    } else {
+                        Utils.showDialog(this, fetchall_task.exception.toString())
+                        Log.e("With time", fetchall_task.exception.toString())
                     }
+                }
 
 
 
@@ -260,6 +254,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
 
 
     }
+
     private fun getDate(date: String): Date {
         val format = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH)
         val value: Date = format.parse(date)
@@ -272,6 +267,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
     override fun onUserClick(data: UserListdata) {
 
     }
+
     override fun onClick(data: AdminPayData) {
 
     }

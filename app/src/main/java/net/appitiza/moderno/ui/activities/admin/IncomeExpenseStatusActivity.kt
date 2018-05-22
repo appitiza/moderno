@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.AdapterView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_income_expense_status.*
 import net.appitiza.moderno.R
 import net.appitiza.moderno.adapter.AdminSprSiteAdapter
@@ -85,7 +86,6 @@ class IncomeExpenseStatusActivity : BaseActivity(), UserSiteClick {
                     mProgress?.dismiss()
                     if (fetchall_task.isSuccessful) {
                         for (document in fetchall_task.result) {
-                            // Log.d(FragmentActivity.TAG, document.id + " => " + document.getData())
                             val data: SiteListdata = SiteListdata()
                             data.siteid = document.id
                             data.sitename = document.data[Constants.SITE_NAME].toString()
@@ -122,6 +122,7 @@ class IncomeExpenseStatusActivity : BaseActivity(), UserSiteClick {
         mIncomeExpenseList.clear()
         db.collection(Constants.COLLECTION_INCOME_EXPENSE)
                 .whereEqualTo(Constants.INCOME_EXPENSE_SITE_ID, selectedSite.siteid.toString())
+                .orderBy(Constants.INCOME_EXPENSE_TIME, Query.Direction.DESCENDING)
                 .get()
                 .addOnCompleteListener { fetchall_task ->
                     mProgress?.dismiss()
