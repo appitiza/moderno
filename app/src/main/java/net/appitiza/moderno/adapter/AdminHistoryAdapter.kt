@@ -5,9 +5,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.item_users_history.view.*
+import kotlinx.android.synthetic.main.item_admin_history.view.*
 import net.appitiza.moderno.R
-import net.appitiza.moderno.ui.activities.admin.AdminWorkReportsActivity
 import net.appitiza.moderno.ui.activities.interfaces.AdminWorkHistoryClick
 import net.appitiza.moderno.model.CurrentCheckIndata
 import net.appitiza.moderno.utils.Utils
@@ -26,7 +25,7 @@ class AdminHistoryAdapter(private var mContext: Context ,private val mList: Arra
     override fun onBindViewHolder(holder: HistoryHolder, position: Int) {
         val userSalary: Int = mList[position].salary
         holder.bindItems(mContext, mList[position],userSalary)
-        holder.itemView.ll_site_item_root.setOnClickListener { callback.onClick(mList[position]) }
+        holder.itemView.ll_admin_history_root.setOnClickListener { callback.onClick(mList[position]) }
 
     }
 
