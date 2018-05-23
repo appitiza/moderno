@@ -16,7 +16,6 @@ import android.util.Log
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import io.reactivex.internal.subscriptions.ArrayCompositeSubscription
 import kotlinx.android.synthetic.main.activity_admin_sites.*
 import net.appitiza.moderno.BuildConfig
 import net.appitiza.moderno.R
@@ -33,7 +32,6 @@ import java.util.*
 class AdminSitesActivity : BaseActivity(), AdminSiteClick, Observer {
 
 
-    private var mCompositeSubscription: ArrayCompositeSubscription? = null
     private var mAuth: FirebaseAuth? = null
     private lateinit var db: FirebaseFirestore
     private var mProgress: ProgressDialog? = null
