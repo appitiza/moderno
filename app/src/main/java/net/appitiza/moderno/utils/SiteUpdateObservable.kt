@@ -9,10 +9,8 @@ class SiteUpdateObservable : Observable() {
         var mCollaborationUpdateObservable: SiteUpdateObservable = SiteUpdateObservable()
         fun getInstance(): SiteUpdateObservable {
             mCollaborationUpdateObservable = SiteUpdateObservable()
-
             return mCollaborationUpdateObservable
         }
-
     }
 
     fun notifyChanges() {
