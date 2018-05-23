@@ -2,7 +2,7 @@ package net.appitiza.moderno.ui.activities.admin
 
 import android.Manifest
 import android.app.ProgressDialog
-import android.content.*
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -16,18 +16,24 @@ import android.util.Log
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import io.reactivex.internal.subscriptions.ArrayCompositeSubscription
 import kotlinx.android.synthetic.main.activity_admin_sites.*
 import net.appitiza.moderno.BuildConfig
 import net.appitiza.moderno.R
-import net.appitiza.moderno.constants.Constants
-import net.appitiza.moderno.ui.activities.BaseActivity
 import net.appitiza.moderno.adapter.AdminSiteAdapter
-import net.appitiza.moderno.ui.activities.interfaces.AdminSiteClick
+import net.appitiza.moderno.constants.Constants
 import net.appitiza.moderno.model.SiteListdata
+import net.appitiza.moderno.ui.activities.BaseActivity
+import net.appitiza.moderno.ui.activities.interfaces.AdminSiteClick
+import net.appitiza.moderno.utils.SiteUpdateObservable
 import net.appitiza.moderno.utils.Utils
+import java.util.*
 
 
-class AdminSitesActivity : BaseActivity(), AdminSiteClick {
+class AdminSitesActivity : BaseActivity(), AdminSiteClick, Observer {
+
+
+    private var mCompositeSubscription: ArrayCompositeSubscription? = null
     private var mAuth: FirebaseAuth? = null
     private lateinit var db: FirebaseFirestore
     private var mProgress: ProgressDialog? = null
@@ -43,9 +49,11 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
         initializeFireBase()
         setClick()
         getAll()
+        SiteUpdateObservable.getInstance().addObserver(this)
     }
 
-      private fun initializeFireBase() {
+
+    private fun initializeFireBase() {
         rv_admin_site_all.layoutManager = LinearLayoutManager(this)
 
         mSiteList = arrayListOf()
@@ -143,7 +151,7 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
                         Snackbar.LENGTH_INDEFINITE)
                         .setAction(R.string.ok, View.OnClickListener {
                             val intent = Intent()
-                            intent.action =  Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                            intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                             val uri: Uri = Uri.fromParts("package",
                                     BuildConfig.APPLICATION_ID, null)
                             intent.data = uri
@@ -193,7 +201,7 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
                         rv_admin_site_all.adapter = adapter
 
                     } else {
-                        Utils.showDialog(this,fetchall_task.exception.toString())
+                        Utils.showDialog(this, fetchall_task.exception.toString())
 
                     }
                 }
@@ -233,7 +241,7 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
                         rv_admin_site_all.adapter = adapter
 
                     } else {
-                        Utils.showDialog(this,fetchall_task.exception.toString())
+                        Utils.showDialog(this, fetchall_task.exception.toString())
 
                     }
                 }
@@ -271,7 +279,7 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
                         rv_admin_site_all.adapter = adapter
 
                     } else {
-                        Utils.showDialog(this,fetchall_task.exception.toString())
+                        Utils.showDialog(this, fetchall_task.exception.toString())
 
                     }
                 }
@@ -297,6 +305,13 @@ class AdminSitesActivity : BaseActivity(), AdminSiteClick {
 
     }
 
+    override fun update(o: Observable, arg: Any) {
+        getAll()
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        SiteUpdateObservable.getInstance().deleteObserver(this)
+    }
 
 }

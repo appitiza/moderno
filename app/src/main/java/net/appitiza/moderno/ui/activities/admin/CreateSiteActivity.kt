@@ -36,6 +36,7 @@ import net.appitiza.moderno.R
 import net.appitiza.moderno.constants.Constants
 import net.appitiza.moderno.ui.activities.BaseActivity
 import net.appitiza.moderno.adapter.SiteTypesAdapter
+import net.appitiza.moderno.utils.SiteUpdateObservable
 import net.appitiza.moderno.utils.Utils
 import java.util.*
 import kotlin.collections.ArrayList
@@ -216,6 +217,7 @@ class CreateSiteActivity : BaseActivity(), GoogleApiClient.ConnectionCallbacks, 
                     if (add_task.isSuccessful) {
                         mProgress!!.dismiss()
                         Utils.showDialog(this,"Site Added")
+                        SiteUpdateObservable.getInstance().notifyChanges()
                         finish()
 
                     } else {

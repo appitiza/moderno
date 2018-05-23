@@ -39,6 +39,7 @@ import net.appitiza.moderno.ui.activities.BaseActivity
 import net.appitiza.moderno.adapter.SiteStatussAdapter
 import net.appitiza.moderno.adapter.SiteTypesAdapter
 import net.appitiza.moderno.model.SiteListdata
+import net.appitiza.moderno.utils.SiteUpdateObservable
 import net.appitiza.moderno.utils.Utils
 import java.util.*
 import kotlin.collections.ArrayList
@@ -128,7 +129,6 @@ class AdminEditSiteActivity : BaseActivity(), GoogleApiClient.ConnectionCallback
         type_list.add("Exterior")
         mTypeAdapter = SiteTypesAdapter(this, type_list)
         spnr_admin_edit_type.adapter = mTypeAdapter
-        //spnr_admin_edit_type.setAdapter(mTypeAdapter)
 
     }
 
@@ -137,7 +137,6 @@ class AdminEditSiteActivity : BaseActivity(), GoogleApiClient.ConnectionCallback
         status_list.add("complete")
         mStatusAdapter = SiteStatussAdapter(this, status_list)
         spnr_admin_edit_status.adapter = mStatusAdapter
-        //spnr_admin_edit_status.setAdapter(mTypeAdapter)
     }
 
     private fun setClick() {
@@ -152,6 +151,7 @@ class AdminEditSiteActivity : BaseActivity(), GoogleApiClient.ConnectionCallback
                                 mProgress!!.dismiss()
                                 Toast.makeText(this@AdminEditSiteActivity, "Edited",
                                         Toast.LENGTH_SHORT).show()
+                                SiteUpdateObservable.getInstance().notifyChanges()
                                 finish()
 
                             } else {
