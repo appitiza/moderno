@@ -55,7 +55,10 @@ class StartUpActivity : BaseActivity() {
 
             loginUser(et_login_email.text.toString(), et_login_password.text.toString())
         }
-        tv_login_reset_password.setOnClickListener { resetPassword(et_login_email.text.toString()) }
+        tv_login_reset_password.setOnClickListener {
+            // resetPassword(et_login_email.text.toString())
+            moveToReset()
+        }
         tv_login_register.setOnClickListener {
 
 
@@ -94,7 +97,11 @@ class StartUpActivity : BaseActivity() {
         }
 
     }
-
+private fun moveToReset()
+    {
+        val intent = Intent(this@StartUpActivity,ResetPasswordActivity::class.java)
+        startActivity(intent)
+    }
     private fun loginUser(email: String, password: String) {
         if (validation(email, password)) {
             mProgress?.setTitle(getString(R.string.app_name))

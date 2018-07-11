@@ -59,7 +59,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
     /*companion object {
         var userSalary: Int = 0
     }*/
-    private var userSalary: Int = 0
+    private var userSalary: Double = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_work_reports)
@@ -134,7 +134,7 @@ class AdminWorkReportsActivity : BaseActivity(), UserClick, AdminWorkHistoryClic
                             val data = UserListdata()
                             data.emailId = document.data[Constants.USER_EMAIL].toString()
                             data.username = document.data[Constants.USER_DISPLAY_NAME].toString()
-                            data.salary = document.data[Constants.USER_SALARY].toString().toInt()
+                            data.salary = document.data[Constants.USER_SALARY].toString().toDouble()
                             mUserList.add(data)
 
                         }

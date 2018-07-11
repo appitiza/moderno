@@ -35,6 +35,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/MainMaterialTheme.Base.login"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".ui.activities.ResetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainMaterialTheme.Base.login"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".ui.activities.RegisterActivity"
             android:screenOrientation="portrait"
@@ -149,10 +153,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/MainMaterialTheme.Base.admin"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".ui.activities.admin.IncomeExpenseStatusActivity"
+        <activity
+            android:name=".ui.activities.admin.IncomeExpenseStatusActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MainMaterialTheme.Base.admin"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.activities.users.UsersActivity"
             android:screenOrientation="portrait"

@@ -23,7 +23,7 @@ class AdminHistoryAdapter(private var mContext: Context ,private val mList: Arra
 
     //this method is binding the data on the list
     override fun onBindViewHolder(holder: HistoryHolder, position: Int) {
-        val userSalary: Int = mList[position].salary
+        val userSalary: Double = mList[position].salary
         holder.bindItems(mContext, mList[position],userSalary)
         holder.itemView.ll_admin_history_root.setOnClickListener { callback.onClick(mList[position]) }
 
@@ -37,7 +37,7 @@ class AdminHistoryAdapter(private var mContext: Context ,private val mList: Arra
     //the class is hodling the list view
     class HistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(mContext: Context, data: CurrentCheckIndata,salary :Int) {
+        fun bindItems(mContext: Context, data: CurrentCheckIndata,salary :Double) {
             itemView.tv_historyitem_date.text = getDate(data.checkintime!!.toLong(), "dd MMM yyyy")
             itemView.tv_historyitem_site.text = data.sitename
 

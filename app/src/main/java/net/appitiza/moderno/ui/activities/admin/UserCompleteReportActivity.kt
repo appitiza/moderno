@@ -45,7 +45,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
 
     private lateinit var mHistoryDisplay: ArrayList<CurrentCheckIndata>
     private lateinit var adapterMonthly: AdminHistoryAdapter
-    private var userSalary: Int = 0
+    private var userSalary: Double = 0.0
 
     private lateinit var mPayList: ArrayList<AdminPayData>
     private lateinit var payAdapter: AdminPayAdapter
@@ -109,7 +109,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                             val data = UserListdata()
                             data.emailId = document.data[Constants.USER_EMAIL].toString()
                             data.username = document.data[Constants.USER_DISPLAY_NAME].toString()
-                            data.salary = document.data[Constants.USER_SALARY].toString().toInt()
+                            data.salary = document.data[Constants.USER_SALARY].toString().toDouble()
                             mUserList.add(data)
 
                         }
@@ -162,7 +162,7 @@ class UserCompleteReportActivity : BaseActivity(), UserClick, AdminWorkHistoryCl
                                 mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
                                 mCheckInData.username = document.data[Constants.CHECKIN_USERNAME].toString()
                                 mCheckInData.payment = document.data[Constants.CHECKIN_PAYMENT].toString()
-                                mCheckInData.salary = userSalary
+                                mCheckInData.salary = userSalary.toDouble()
 
                                 if (document.data[Constants.CHECKIN_PAYMENT].toString() != "null" && document.data[Constants.CHECKIN_PAYMENT].toString() != "") {
                                     val mPayment = Integer.parseInt(document.data[Constants.CHECKIN_PAYMENT].toString())

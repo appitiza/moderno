@@ -283,4 +283,7 @@
     <string name="income_expense_status">Income Expense Status</string>
     <string name="category">Category</string>
     <string name="type">type</string>
+    <string name="new_password">New Password</string>
+    <string name="delete_user">Delete User</string>
+    <string name="delete_user_message">Deleting User</string>
 </resources>

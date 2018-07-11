@@ -229,6 +229,7 @@ class AdminActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        showExitWarning()
+       // showExitWarning()
+        super.onBackPressed()
     }
 }

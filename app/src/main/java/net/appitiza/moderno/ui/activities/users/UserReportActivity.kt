@@ -420,6 +420,15 @@ class UserReportActivity : BaseActivity(), UserSiteClick, GoogleApiClient.Connec
                             }
                             mCheckInData.useremail = document.data[Constants.CHECKIN_USEREMAIL].toString()
 
+
+
+                            for (item in mSiteList)
+                            {
+                                if(item.siteid == mCheckInData.siteid)
+                                {
+                                    checkoutSite = item
+                                }
+                            }
                         }
 
                         if (!TextUtils.isEmpty(mCheckInData.checkintime.toString()) && mCheckInData.checkintime != 0L && mCheckInData.checkintime.toString() != "null") {

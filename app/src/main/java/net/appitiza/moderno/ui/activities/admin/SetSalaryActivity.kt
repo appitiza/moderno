@@ -57,7 +57,7 @@ class SetSalaryActivity : BaseActivity(), UserClick {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
                 user = mUserList[position]
-                if(user?.salary != 0) {
+                if(user?.salary != 0.0) {
                     et_admin_salary.setText(user?.salary.toString())
                     et_admin_salary.setSelection(user?.salary.toString().length)
                 }
@@ -85,7 +85,7 @@ class SetSalaryActivity : BaseActivity(), UserClick {
                             val data = UserListdata()
                             data.emailId = document.data[Constants.USER_EMAIL].toString()
                             data.username = document.data[Constants.USER_DISPLAY_NAME].toString()
-                            data.salary = document.data[Constants.USER_SALARY].toString().toInt()
+                            data.salary = document.data[Constants.USER_SALARY].toString().toDouble()
                             mUserList.add(data)
 
                         }

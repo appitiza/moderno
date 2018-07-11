@@ -81,6 +81,7 @@ class RegisterActivity : BaseActivity() {
                             val map = HashMap<String, Any>()
                             map[Constants.USER_DISPLAY_NAME] = displayname
                             map[Constants.USER_EMAIL] = mAuth?.currentUser?.email.toString()
+                            map[Constants.USER_PASSWORD] = userpassword
                             map[Constants.USER_TOKEN] = deviceToken.toString()
                             map[Constants.USER_IMEI] = device_id
                             map[Constants.USER_SALARY] = "0"
