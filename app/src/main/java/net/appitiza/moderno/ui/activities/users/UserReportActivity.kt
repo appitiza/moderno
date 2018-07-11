@@ -422,13 +422,13 @@ class UserReportActivity : BaseActivity(), UserSiteClick, GoogleApiClient.Connec
 
 
 
-                            for (item in mSiteList)
+                           /* for (item in mSiteList)
                             {
                                 if(item.siteid == mCheckInData.siteid)
                                 {
                                     checkoutSite = item
                                 }
-                            }
+                            }*/
                         }
 
                         if (!TextUtils.isEmpty(mCheckInData.checkintime.toString()) && mCheckInData.checkintime != 0L && mCheckInData.checkintime.toString() != "null") {

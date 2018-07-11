@@ -3,6 +3,7 @@ package net.appitiza.moderno.ui.activities.admin
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_user_list.*
@@ -77,6 +78,7 @@ class UserListActivity : BaseActivity(), UserListItemClick {
 
     override fun onDeleteClick(item: UserListdata) {
 
+        Toast.makeText(applicationContext,"Not Implimented",Toast.LENGTH_SHORT).show()
        /* mProgress?.setTitle(getString(R.string.app_name))
         mProgress?.setMessage(getString(R.string.delete_user_message))
         mProgress?.setCancelable(false)

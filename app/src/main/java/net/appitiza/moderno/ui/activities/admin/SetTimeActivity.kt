@@ -288,10 +288,10 @@ class SetTimeActivity : BaseActivity(), UserClick, UserSiteClick {
         } else if (mCheckinCalendar.timeInMillis >= mCheckoutCalendar.timeInMillis) {
             Utils.showDialog(this, getString(R.string.checkout_time_should_be_greater_than_checkin))
             return false
-        } else if (checkinSite.siteid != checkoutSite.siteid) {
+        } /*else if (checkinSite.siteid != checkoutSite.siteid) {
             Utils.showDialog(this, getString(R.string.check_in_not_equal_check_out))
             return false
-        }
+        }*/
         else {
             return true
         }

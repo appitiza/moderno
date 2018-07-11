@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="@dimen/quad_margin"
-            android:background="@color/users_home_btn_strock" />
+            android:background="@color/admin_home_btn_strock" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_user_list"
