@@ -46,7 +46,7 @@ class AdminHistoryAdapter(private var mContext: Context ,private val mList: Arra
 
                     itemView.tv_historyitem_hours.text = Utils.convertHours((data.checkouttime!!.toLong() - data.checkintime!!.toLong()))
                     if (data.payment.toString() != "null") {
-                        val expected = ((data.checkouttime!!.toLong() - data.checkintime!!.toLong()) / (60L * 60L * 1000L)) * salary
+                        val expected = ((data.checkouttime!!.toLong() - data.checkintime!!.toLong()) / (60L * 60L * 1000L)) * salary.toLong()
                         if (data.payment!!.toInt() > expected) {
                             itemView.tv_historyitem_payment.text = mContext.getString(R.string.payment_info, data.payment!!.toInt(),expected, 0)
 
